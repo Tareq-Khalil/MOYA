@@ -29,7 +29,7 @@ const LoadingScreen = () => (
   <div className="min-h-screen flex items-center justify-center">
     <div className="flex flex-col items-center gap-4">
       <div className="w-16 h-16 rounded-full border-4 border-ocean-500/30 border-t-ocean-400 animate-spin" />
-      <p className="text-white/60 font-body">Loading AquaWatch...</p>
+      <p className="text-white/60 font-body">Loading MOYA...</p>
     </div>
   </div>
 )

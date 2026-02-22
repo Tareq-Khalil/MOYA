@@ -44,7 +44,7 @@ export default function MeetUs() {
       <section className="max-w-5xl mx-auto px-6 text-center mb-24">
         <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-6">
           <Droplets size={14} className="text-ocean-300" />
-          <span className="text-ocean-200 text-sm">The People Behind AquaWatch</span>
+          <span className="text-ocean-200 text-sm">The People Behind MOYA</span>
         </div>
         <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6">
           Meet Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-ocean-300 to-teal-300">Team</span>
@@ -102,7 +102,7 @@ export default function MeetUs() {
             <h2 className="font-display text-3xl font-bold text-white mb-6">Our Story</h2>
             <div className="space-y-4 text-white/65 leading-relaxed">
               <p>
-                AquaWatch began in 2022 when Dr. Al-Hassan witnessed a community struggling with contaminated 
+                MOYA began in 2022 when Dr. Al-Hassan witnessed a community struggling with contaminated 
                 water supply for weeks — not because officials didn't care, but because there was no efficient 
                 way to document, track, and escalate these issues.
               </p>
@@ -112,7 +112,7 @@ export default function MeetUs() {
                 authority responded 40% faster than before.
               </p>
               <p>
-                Today, AquaWatch operates across multiple cities, empowering citizens to become active 
+                Today, MOYA operates across multiple cities, empowering citizens to become active 
                 participants in water management — and rewarding them for their crucial contributions.
               </p>
             </div>
