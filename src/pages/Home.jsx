@@ -106,10 +106,10 @@ export default function Home() {
       <section className="py-20 bg-ocean-900/50">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <StatCard number="2.1K+" label="Reports Submitted" icon={AlertTriangle} />
-            <StatCard number="840+" label="Active Users" icon={Star} />
-            <StatCard number="94%" label="Issues Resolved" icon={TrendingUp} />
-            <StatCard number="60+" label="Cities Covered" icon={Map} />
+            <StatCard number="0K+" label="Reports Submitted" icon={AlertTriangle} />
+            <StatCard number="0+" label="Active Users" icon={Star} />
+            <StatCard number="0%" label="Issues Resolved" icon={TrendingUp} />
+            <StatCard number="0+" label="Cities Covered" icon={Map} />
           </div>
         </div>
       </section>
@@ -209,7 +209,7 @@ export default function Home() {
             <Droplets size={18} className="text-ocean-300" />
             <span className="font-display font-bold text-white">AquaWatch</span>
           </div>
-          <p className="text-white/30 text-sm">© 2024 AquaWatch. Helping communities, one drop at a time.</p>
+          <p className="text-white/30 text-sm">© 2026 WaterWise. Helping communities, one drop at a time.</p>
           <div className="flex gap-6">
             <Link to="/meet-us" className="text-white/40 hover:text-white/70 text-sm transition-colors">About</Link>
             <Link to="/map" className="text-white/40 hover:text-white/70 text-sm transition-colors">Map</Link>
