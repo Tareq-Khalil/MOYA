@@ -102,14 +102,10 @@ export default function MeetUs() {
             <h2 className="font-display text-3xl font-bold text-white mb-6">Our Story</h2>
             <div className="space-y-4 text-white/65 leading-relaxed">
               <p>
-                MOYA began in 2022 when Dr. Al-Hassan witnessed a community struggling with contaminated 
-                water supply for weeks — not because officials didn't care, but because there was no efficient 
-                way to document, track, and escalate these issues.
+                MOYA began in 2026
               </p>
               <p>
-                We built the first prototype in a weekend hackathon. Within three months, it was being used 
-                by 200 families to report flooding, contamination, and leakage issues. The municipal water 
-                authority responded 40% faster than before.
+                We built the 
               </p>
               <p>
                 Today, MOYA operates across multiple cities, empowering citizens to become active 
