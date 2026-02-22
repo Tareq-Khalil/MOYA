@@ -33,7 +33,7 @@ export default function Navbar() {
           <div className="w-9 h-9 rounded-xl bg-ocean-500/20 border border-ocean-400/30 flex items-center justify-center group-hover:bg-ocean-500/30 transition-colors">
             <Droplets size={20} className="text-ocean-300" />
           </div>
-          <span className="font-display text-xl font-bold text-white">MO<span className="text-ocean-300">YA</span></span>
+          <span className="font-display text-xll font-bold text-white">MO<span className="text-ocean-300">YA</span></span>
         </Link>
 
         {/* Desktop Nav */}
