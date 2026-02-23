@@ -15,7 +15,7 @@ export default function AICompanion() {
   const [isOpen, setIsOpen] = useState(false)
   const [isMinimized, setIsMinimized] = useState(false)
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: 'Hi! I\'m AquaBot 💧 Your water management companion. How can I help you today?' }
+    { role: 'assistant', content: 'Hi! I\'m AquaBot💧! Your water management companion. How can I help you today?' }
   ])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
