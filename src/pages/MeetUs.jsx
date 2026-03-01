@@ -3,65 +3,66 @@ import { Github, Twitter, Linkedin, Droplets, Target, Eye, Heart } from 'lucide-
 const team = [
   {
     name: 'Tareq Khalil',
-    role: 'XXX',
-    bio: 'PhD in Environmental Engineering with 12 years of experience in water quality research and community-based water management solutions.',
+    role: 'CEO (Chief Executive Officer)',    
+    bio: 'Leads company vision, strategy, partnerships, investor relations, and overall business development.',
     avatar: 'TQ',
     color: 'from-ocean-500 to-ocean-700'
   },
-  {
-    name: 'Daniel George',
-    role: 'XXX',
-    bio: 'Full-stack engineer passionate about civic tech. Built platforms for 3 NGOs focused on environmental monitoring and data transparency.',
-    avatar: 'DG',
-    color: 'from-teal-500 to-teal-700'
+    {
+    name: 'Mohamed El-Shamy',
+    role: 'CTO (Chief Technical Officer)',
+    bio: 'Oversees system architecture, platform development, security, and technical roadmap.',
+    avatar: 'ME',
+    color: 'from-teal-600 to-ocean-600'
   },
-  {
+    {
     name: 'Amro Ibrahim',
-    role: 'XXX',
-    bio: 'Connecting citizens and governments. Background in urban planning and environmental policy advocacy across 8 countries.',
+    role: 'CIO (Chief Information Officer)',
+    bio: 'Leads IT strategy, systems, data management, and cybersecurity.',
     avatar: 'AI',
     color: 'from-ocean-600 to-teal-600'
   },
   {
-    name: 'Mohamed El-Shamy',
-    role: 'XXX',
-    bio: 'Turning water data into actionable insights. Specialist in GIS mapping and environmental impact assessment.',
-    avatar: 'ME',
-    color: 'from-teal-600 to-ocean-600'
-  },
-  {
-    name: 'Tyam Mohamed',
-    role: 'XXX',
-    bio: 'Passionate about empowering communities through technology. Experienced in project management and community engagement.',
-    avatar: 'TM',
-    color: 'from-ocean-500 to-teal-500'
-  },
-  {
-    name: 'Yousef Ahmed',
-    role: 'XXX',
-    bio: 'Environmental educator and outreach coordinator focused on water awareness campaigns.',
-    avatar: 'YA',
-    color: 'from-teal-500 to-ocean-500'
-  },
-  {
     name: 'Kevin Martin',
-    role: 'XXX',
-    bio: 'Data scientist specializing in environmental policy and water data modeling.',
+    role: 'CMO (Chief Marketing Officer)',
+    bio: 'Manages branding, digital campaigns, content strategy, partnerships, and user acquisition.',
     avatar: 'KM',
     color: 'from-ocean-600 to-teal-600'
   },
   {
+    name: 'Daniel George',
+    role: 'Game Developer',
+    bio: 'Designs educational gameplay mechanics, user engagement flows, and gamification strategy.',
+    avatar: 'DG',
+    color: 'from-teal-500 to-teal-700'
+  },
+  {
     name: 'Asser El-Sergany',
-    role: 'XXX',
-    bio: 'Software developer building scalable platforms for environmental sustainability.',
+    role: 'Graphic Designer - GD',
+    bio: 'Designs all visual content, branding materials, and marketing graphics.',
     avatar: 'AS',
     color: 'from-teal-600 to-ocean-600'
   },
   {
+    name: 'Yousef Ahmed',
+    role: 'CCO (Chief Communications Officer)',
+    bio: 'Manages company image, media relations, partnerships, and public communication.',
+    avatar: 'YA',
+    color: 'from-teal-500 to-ocean-500'
+  },
+
+  {
     name: 'Loay Alaa',
-    role: 'XXX',
-    bio: 'Community organizer focused on mobilizing citizens for water conservation.',
+    role: 'CFO (Chief Financial Officer)',
+    bio: 'Oversees budgeting, financial planning, accounting, and investor reporting.',
     avatar: 'LA',
+    color: 'from-ocean-500 to-teal-500'
+  },
+  {
+    name: 'Tyam Mohamed',
+    role: 'Operations Manager',
+    bio: 'Designs educational gameplay mechanics, user engagement flows, and gamification strategy.',
+    avatar: 'TM',
     color: 'from-ocean-500 to-teal-500'
   }
 ]

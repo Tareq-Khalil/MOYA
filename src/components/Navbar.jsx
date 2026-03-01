@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
-import { Droplets, Menu, X, LogOut, User, Shield, ShoppingBag, Map } from 'lucide-react'
+import { Droplets, Menu, X, LogOut, User, Shield, ShoppingBag, Map, Gamepad2 } from 'lucide-react'
 
 export default function Navbar() {
   const { user, profile, signOut } = useAuth()
@@ -46,6 +46,9 @@ export default function Navbar() {
           <Link to="/shop" className={`nav-link flex items-center gap-1.5 ${isActive('/shop') ? 'text-white' : ''}`}>
             <ShoppingBag size={14} />Shop
           </Link>
+          <Link to="/games" className={`nav-link flex items-center gap-1.5 ${isActive('/games') ? 'text-white' : 'text-ocean-300/80'}`}>
+            <Gamepad2 size={14} />Games
+          </Link>
           {profile?.is_admin && (
             <Link to="/admin" className={`nav-link flex items-center gap-1.5 text-teal-300 ${isActive('/admin') ? 'text-teal-200' : ''}`}>
               <Shield size={14} />Admin
@@ -87,7 +90,7 @@ export default function Navbar() {
       {/* Mobile Dropdown */}
       {menuOpen && (
         <div className="md:hidden glass mt-2 mx-4 rounded-2xl p-4 flex flex-col gap-2">
-          {[['/', 'Home'], ['/meet-us', 'Meet Us'], ['/map', 'Map'], ['/shop', 'Shop']].map(([path, label]) => (
+          {[['/', 'Home'], ['/meet-us', 'Meet Us'], ['/map', 'Map'], ['/shop', 'Shop'], ['/games', '🎮 Games']].map(([path, label]) => (
             <Link key={path} to={path} onClick={() => setMenuOpen(false)}
               className={`px-4 py-2.5 rounded-xl transition-colors ${isActive(path) ? 'bg-ocean-600/40 text-white' : 'text-white/70 hover:bg-white/5'}`}>
               {label}
