@@ -486,7 +486,6 @@ export default function GameHub() {
             </span>
           </h1>
           <p className="text-white/55 text-lg max-w-2xl mx-auto leading-relaxed">
-            Six water-themed games designed to educate, challenge, and entertain.
             Earn AquaPoints from reporting, then spend them to unlock harder challenges.
           </p>
 
