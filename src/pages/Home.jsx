@@ -228,10 +228,10 @@ export default function Home() {
               {/* Game list preview */}
               <div className="flex flex-col gap-3 mb-8">
                 {[
-                  { emoji: '🧠', name: 'Water Trivia',    label: 'Free',     desc: 'Timed quiz on water science & global issues' },
-                  { emoji: '🔧', name: 'Pipeline Puzzle', label: '50 pts',   desc: 'Rotate pipes to route water infrastructure' },
-                  { emoji: '🌊', name: 'Flood Defense',   label: '120 pts',  desc: 'Real-time strategy: protect homes from floods' },
-                  { emoji: '🌍', name: 'Eco Decisions',   label: '100 pts',  desc: 'Make real-world water management choices' },
+                  {name: 'Water Trivia',    label: 'Free',     desc: 'Timed quiz on water science & global issues' },
+                  {name: 'Pipeline Puzzle', label: '10 pts',   desc: 'Rotate pipes to route water infrastructure' },
+                  {name: 'Flood Defense',   label: '20 pts',  desc: 'Real-time strategy: protect homes from floods' },
+                  {name: 'Eco Decisions',   label: '20 pts',  desc: 'Make real-world water management choices' },
                 ].map(({ emoji, name, label, desc }) => (
                   <div key={name} className="flex items-center gap-3 glass rounded-xl px-4 py-3 group hover:bg-white/10 transition-colors">
                     <span className="text-xl flex-shrink-0">{emoji}</span>
