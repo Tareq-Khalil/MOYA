@@ -19,7 +19,6 @@ const EVENTS = [
     difficulty: 'Easy',
     color: 'from-ocean-600/40 to-ocean-900/60',
     accent: '#0ea5e9',
-    emoji: '🌊',
   },
   {
     id: 2,
@@ -35,7 +34,6 @@ const EVENTS = [
     difficulty: 'Medium',
     color: 'from-teal-600/40 to-teal-900/60',
     accent: '#14b8a6',
-    emoji: '🧪',
   },
   {
     id: 3,
@@ -51,7 +49,6 @@ const EVENTS = [
     difficulty: 'Medium',
     color: 'from-blue-600/40 to-blue-900/60',
     accent: '#3b82f6',
-    emoji: '📍',
   },
   {
     id: 4,
@@ -67,7 +64,6 @@ const EVENTS = [
     difficulty: 'Easy',
     color: 'from-emerald-600/40 to-emerald-900/60',
     accent: '#10b981',
-    emoji: '📚',
   },
   {
     id: 5,
@@ -83,7 +79,6 @@ const EVENTS = [
     difficulty: 'Hard',
     color: 'from-violet-600/40 to-violet-900/60',
     accent: '#8b5cf6',
-    emoji: '🔧',
   },
   {
     id: 6,
@@ -99,7 +94,6 @@ const EVENTS = [
     difficulty: 'Medium',
     color: 'from-green-600/40 to-green-900/60',
     accent: '#22c55e',
-    emoji: '🌿',
   },
 ]
 
@@ -343,10 +337,10 @@ export default function Volunteer() {
         {/* How it works */}
         <div className="glass rounded-3xl p-8 mb-12 grid sm:grid-cols-4 gap-6 text-center">
           {[
-            { n:'1', title:'Browse Events', desc:'Find events near you that match your interests and schedule', icon:'📅' },
-            { n:'2', title:'Register', desc:'Submit your details — we\'ll confirm your spot via email', icon:'✍️' },
-            { n:'3', title:'Show Up', desc:'Attend the event and make a real impact on local water', icon:'🙌' },
-            { n:'4', title:'Earn Points', desc:'Receive AquaPoints after the admin confirms your participation', icon:'⭐' },
+            { n:'1', title:'Browse Events', desc:'Find events near you that match your interests and schedule'},
+            { n:'2', title:'Register', desc:'Submit your details — we\'ll confirm your spot via email'},
+            { n:'3', title:'Show Up', desc:'Attend the event and make a real impact on local water'},
+            { n:'4', title:'Earn Points', desc:'Receive AquaPoints after the admin confirms your participation'},
           ].map(({ n, title, desc, icon }) => (
             <div key={n} className="flex flex-col items-center gap-2">
               <div className="text-3xl mb-1">{icon}</div>
