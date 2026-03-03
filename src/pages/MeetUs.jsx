@@ -57,13 +57,6 @@ const team = [
     bio: 'Oversees budgeting, financial planning, accounting, and investor reporting.',
     avatar: 'LA',
     color: 'from-ocean-500 to-teal-500'
-  },
-  {
-    name: 'Tyam Mohamed',
-    role: 'Operations Manager',
-    bio: 'Designs educational gameplay mechanics, user engagement flows, and gamification strategy.',
-    avatar: 'TM',
-    color: 'from-ocean-500 to-teal-500'
   }
 ]
 
