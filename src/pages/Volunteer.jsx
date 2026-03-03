@@ -15,11 +15,17 @@ const EVENTS = [
     spots: 12,
     total: 40,
     description: 'Join us for a major cleanup along the Nile bank. We provide gloves, bags, and refreshments. Help restore one of the world\'s most iconic waterways.',
+<<<<<<< HEAD
+    difficulty: 'Easy',
+    color: 'from-ocean-600/40 to-ocean-900/60',
+    accent: '#0ea5e9',
+=======
     reward: 200,
     difficulty: 'Easy',
     color: 'from-ocean-600/40 to-ocean-900/60',
     accent: '#0ea5e9',
     emoji: '🌊',
+>>>>>>> 6aff0e477f8b3dc9c034474f0378a803f42ed5da
   },
   {
     id: 2,
@@ -31,11 +37,17 @@ const EVENTS = [
     spots: 5,
     total: 20,
     description: 'Learn to use professional water testing kits and help assess water quality in local communities. Training provided. Results feed directly into our database.',
+<<<<<<< HEAD
+    difficulty: 'Medium',
+    color: 'from-teal-600/40 to-teal-900/60',
+    accent: '#14b8a6',
+=======
     reward: 300,
     difficulty: 'Medium',
     color: 'from-teal-600/40 to-teal-900/60',
     accent: '#14b8a6',
     emoji: '🧪',
+>>>>>>> 6aff0e477f8b3dc9c034474f0378a803f42ed5da
   },
   {
     id: 3,
@@ -47,11 +59,17 @@ const EVENTS = [
     spots: 8,
     total: 25,
     description: 'Document pollution sources and coastal erosion along Alexandria\'s coast. GPS devices and datasheets provided. Your data helps shape city policy.',
+<<<<<<< HEAD
+    difficulty: 'Medium',
+    color: 'from-blue-600/40 to-blue-900/60',
+    accent: '#3b82f6',
+=======
     reward: 250,
     difficulty: 'Medium',
     color: 'from-blue-600/40 to-blue-900/60',
     accent: '#3b82f6',
     emoji: '📍',
+>>>>>>> 6aff0e477f8b3dc9c034474f0378a803f42ed5da
   },
   {
     id: 4,
@@ -63,11 +81,17 @@ const EVENTS = [
     spots: 15,
     total: 30,
     description: 'Visit schools and deliver fun, interactive water conservation lessons to students aged 8–14. Lesson plans provided. No teaching experience needed.',
+<<<<<<< HEAD
+    difficulty: 'Easy',
+    color: 'from-emerald-600/40 to-emerald-900/60',
+    accent: '#10b981',
+=======
     reward: 150,
     difficulty: 'Easy',
     color: 'from-emerald-600/40 to-emerald-900/60',
     accent: '#10b981',
     emoji: '📚',
+>>>>>>> 6aff0e477f8b3dc9c034474f0378a803f42ed5da
   },
   {
     id: 5,
@@ -79,11 +103,17 @@ const EVENTS = [
     spots: 3,
     total: 15,
     description: 'Work with engineers to map aging water infrastructure in historic areas. Requires physical fitness. Data collected helps prioritize city maintenance budgets.',
+<<<<<<< HEAD
+    difficulty: 'Hard',
+    color: 'from-violet-600/40 to-violet-900/60',
+    accent: '#8b5cf6',
+=======
     reward: 500,
     difficulty: 'Hard',
     color: 'from-violet-600/40 to-violet-900/60',
     accent: '#8b5cf6',
     emoji: '🔧',
+>>>>>>> 6aff0e477f8b3dc9c034474f0378a803f42ed5da
   },
   {
     id: 6,
@@ -95,11 +125,17 @@ const EVENTS = [
     spots: 20,
     total: 50,
     description: 'Plant native vegetation and remove invasive species in Egypt\'s largest natural lake. A hands-in-the-mud day that directly restores critical wetland habitat.',
+<<<<<<< HEAD
+    difficulty: 'Medium',
+    color: 'from-green-600/40 to-green-900/60',
+    accent: '#22c55e',
+=======
     reward: 350,
     difficulty: 'Medium',
     color: 'from-green-600/40 to-green-900/60',
     accent: '#22c55e',
     emoji: '🌿',
+>>>>>>> 6aff0e477f8b3dc9c034474f0378a803f42ed5da
   },
 ]
 
