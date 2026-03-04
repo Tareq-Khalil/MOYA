@@ -72,7 +72,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-8 animate-fade-in">
             <Waves size={14} className="text-teal-300" />
-            <span className="text-teal-200 text-sm font-medium">Water Problem Reporting Platform</span>
+            <span className="text-teal-200 text-sm font-medium">Managing Optimal Yield of Aqua</span>
           </div>
 
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight animate-slide-up">
