@@ -7,7 +7,6 @@ import {
   Mail, Phone, User, Cake, AlertCircle, CheckCircle2
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
 
 /* ─────────────────────────── data ─────────────────────────── */
 const EVENTS = [
@@ -649,7 +648,6 @@ export default function Volunteer() {
           onSuccess={() => handleSuccess(registerModal.id)}
         />
       )}
-      <Footer />
     </div>
   )
 }

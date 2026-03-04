@@ -3,7 +3,6 @@ import { supabase } from '../lib/supabase'
 import { useAuth } from '../contexts/AuthContext'
 import { ShoppingBag, Star, Lock, Check, Loader, Plus, X, Upload } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
 
 function ShopItem({ item, userPoints, onRedeem, loading }) {
   const canAfford = userPoints >= item.points_cost
@@ -199,7 +198,6 @@ export default function Shop() {
           </div>
         )}
       </div>
-      <Footer />
     </div>
   )
 }

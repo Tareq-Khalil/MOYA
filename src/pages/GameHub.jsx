@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { supabase } from '../lib/supabase'
 import { GAME_REGISTRY, FREE_GAME_IDS, ENGINE_LABELS } from './gameRegistry'
-import Footer from '../components/Footer'
 // import IframeGame from './games/IframeGame'
 import {
   Gamepad2, Star, Lock, Play, Trophy,
@@ -498,7 +497,6 @@ export default function GameHub() {
           onCancel={() => setUnlockModal(null)}
           loading={unlockLoading} />
       )}
-      <Footer />
     </div>
   )
 }

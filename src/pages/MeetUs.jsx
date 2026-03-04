@@ -1,5 +1,4 @@
 import { Github, Twitter, Linkedin, Droplets, Target, Eye, Heart } from 'lucide-react'
-import Footer from '../components/Footer'
 
 const team = [
   {
@@ -180,7 +179,6 @@ export default function MeetUs() {
         </div>
 
       </section>
-      <Footer />
 
     </div>
   )
