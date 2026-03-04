@@ -47,7 +47,7 @@ const team = [
 
   {
     name: 'Loay Alaa',
-    role: 'Slave to the CEO',
+    role: 'Slave to the CIO',
     bio: 'Oversees budgeting, financial planning, accounting, and investor reporting.',
     avatar: 'LA',
     color: 'from-ocean-500 to-teal-500'
