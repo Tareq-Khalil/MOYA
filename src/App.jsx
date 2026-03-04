@@ -12,7 +12,7 @@ import Shop from './pages/Shop'
 import Profile from './pages/Profile'
 import GameHub from './pages/GameHub'
 import Volunteer from './pages/Volunteer'
-import Footer from '../components/Footer'
+import Footer from './components/Footer'
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth()
