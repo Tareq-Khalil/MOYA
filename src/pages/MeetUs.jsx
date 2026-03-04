@@ -47,7 +47,7 @@ const team = [
 
   {
     name: 'Loay Alaa',
-    role: 'CBO (Chief BAKA Officer)',
+    role: 'Slave to the CEO',
     bio: 'Oversees budgeting, financial planning, accounting, and investor reporting.',
     avatar: 'LA',
     color: 'from-ocean-500 to-teal-500'
