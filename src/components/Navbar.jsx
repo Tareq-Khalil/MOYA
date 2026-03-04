@@ -50,7 +50,7 @@ export default function Navbar() {
             <ShoppingBag size={14} />Volunteer
           </Link>
           <Link to="/games" className={`nav-link flex items-center gap-1.5 ${isActive('/games') ? 'text-white' : 'text-ocean-300/80'}`}>
-            <Gamepad2 size={14} />Games
+            <Gamepad2 size={14} />Game Hub
           </Link>
           {profile?.is_admin && (
             <Link to="/admin" className={`nav-link flex items-center gap-1.5 text-teal-300 ${isActive('/admin') ? 'text-teal-200' : ''}`}>
