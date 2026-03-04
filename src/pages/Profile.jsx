@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../contexts/AuthContext'
 import { User, Star, MapPin, Clock, CheckCircle, XCircle, Clock3, Loader, Droplets } from 'lucide-react'
+import Footer from '../components/Footer'
 
 const StatusBadge = ({ status }) => {
   if (status === 'approved') return <span className="badge-approved flex items-center gap-1"><CheckCircle size={10} />Approved</span>
@@ -148,6 +149,7 @@ export default function Profile() {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   )
 }
