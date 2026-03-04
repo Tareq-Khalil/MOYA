@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
-import { Droplets, Menu, X, LogOut, User, Shield, ShoppingBag, Map, Gamepad2 } from 'lucide-react'
+import { Menu, X, LogOut, User, Shield, ShoppingBag, Map, Gamepad2, Heart } from 'lucide-react'
 
 export default function Navbar() {
   const { user, profile, signOut } = useAuth()
@@ -28,12 +28,14 @@ export default function Navbar() {
       scrolled ? 'glass py-3 shadow-2xl shadow-black/30' : 'bg-transparent py-5'
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-xl bg-ocean-500/20 border border-ocean-400/30 flex items-center justify-center group-hover:bg-ocean-500/30 transition-colors">
-            <Droplets size={20} className="text-ocean-300" />
-          </div>
-          <span className="font-display text-3xl font-bold text-white">MO<span className="text-ocean-300">YA</span></span>
+        <Link to="/" className="flex items-center group">
+          <img
+            src="/logo.png"
+            alt="MOYA"
+            className="h-10 w-auto object-contain transition-opacity group-hover:opacity-80"
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -47,10 +49,10 @@ export default function Navbar() {
             <ShoppingBag size={14} />Shop
           </Link>
           <Link to="/volunteer" className={`nav-link flex items-center gap-1.5 ${isActive('/volunteer') ? 'text-white' : ''}`}>
-            <ShoppingBag size={14} />Volunteer
+            <Heart size={14} />Volunteer
           </Link>
           <Link to="/games" className={`nav-link flex items-center gap-1.5 ${isActive('/games') ? 'text-white' : 'text-ocean-300/80'}`}>
-            <Gamepad2 size={14} />Game Hub
+            <Gamepad2 size={14} />Games Hub
           </Link>
           {profile?.is_admin && (
             <Link to="/admin" className={`nav-link flex items-center gap-1.5 text-teal-300 ${isActive('/admin') ? 'text-teal-200' : ''}`}>
@@ -84,7 +86,7 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Button */}
         <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden glass p-2 rounded-xl">
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -93,7 +95,14 @@ export default function Navbar() {
       {/* Mobile Dropdown */}
       {menuOpen && (
         <div className="md:hidden glass mt-2 mx-4 rounded-2xl p-4 flex flex-col gap-2">
-          {[['/', 'Home'], ['/meet-us', 'Meet Us'], ['/map', 'Map'], ['/shop', 'Shop'], ['/games', '🎮 Games']].map(([path, label]) => (
+          {[
+            ['/', 'Home'],
+            ['/meet-us', 'Meet Us'],
+            ['/map', 'Map'],
+            ['/shop', 'Shop'],
+            ['/volunteer', '❤️ Volunteer'],
+            ['/games', '🎮 Games'],
+          ].map(([path, label]) => (
             <Link key={path} to={path} onClick={() => setMenuOpen(false)}
               className={`px-4 py-2.5 rounded-xl transition-colors ${isActive(path) ? 'bg-ocean-600/40 text-white' : 'text-white/70 hover:bg-white/5'}`}>
               {label}
