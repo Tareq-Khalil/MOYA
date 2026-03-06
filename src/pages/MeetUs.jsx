@@ -7,12 +7,12 @@ const team = [
     role: 'CEO',
     roleLabel: 'Chief Executive Officer',
     bio: 'Leads company vision, strategy, partnerships, investor relations, and overall business development. Passionate about turning environmental challenges into scalable tech solutions.',
-    quote: 'Water is not a resource to be managed — it\'s a right to be protected.',
+    quote: 'The more you understand this world, the more you destroy yourself. That\'s why fools are happy, and intelligent peoepl live in loneliness',
     avatar: 'TQ',
     photo: '', // insert image URL here
     color: 'from-ocean-500 to-ocean-700',
     accent: '#0ea5e9',
-    favLang: 'Python',
+    favLang: 'Japa',
     extra: { label: 'Fun Fact', value: 'Has visited 5 different Nile delta regions for field research.' },
     email: '', // insert email here
     phone: '', // insert phone here
@@ -290,7 +290,7 @@ function MemberModal({ member, onClose }) {
               <div className="rounded-2xl p-4" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <div className="flex items-center gap-2 mb-2">
                   <Code2 size={12} style={{ color: member.accent }} />
-                  <span className="text-white/25 text-[10px] uppercase tracking-widest">Fav Language</span>
+                  <span className="text-white/25 text-[10px] uppercase tracking-widest">Fav Languages</span>
                 </div>
                 <p className="text-white font-bold text-sm">{member.favLang}</p>
               </div>
