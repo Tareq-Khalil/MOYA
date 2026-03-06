@@ -70,8 +70,8 @@ export default function Donate() {
           </h1>
 
           <p className="text-white/60 text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            Your donation powers MOYA's mission to protect Egypt's water resources —
-            from community reports to national events and educational programs.
+            Your donation powers MOYA's mission to protect Egypt's water resources<br />
+            From community reports to national events and educational programs.
           </p>
 
           {/* ── BIG DONATE BUTTON ── */}
@@ -141,7 +141,7 @@ export default function Donate() {
               stat="2×"
               statLabel="Faster report processing"
               title="Enhancing Resources"
-              description="Better tools, infrastructure, and admin capacity means water issues get reviewed and resolved faster — turning reports into real action across Egyptian communities."
+              description="Better tools, infrastructure, and admin capacity means water issues get reviewed and resolved faster, turning reports into real action across Egyptian communities."
             />
             <ImpactCard
               icon={Globe}
