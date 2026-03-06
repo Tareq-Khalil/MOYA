@@ -157,7 +157,7 @@ export default function Donate() {
               stat="6×"
               statLabel="Events planned this year"
               title="Improving Our National Events"
-              description="From Nile cleanup drives to Alexandria coastline surveys — your support covers logistics, equipment, and coordination for on-the-ground volunteer events that restore water bodies."
+              description="From Nile cleanup drives to Alexandria coastline surveys. Your support covers logistics, equipment, and coordination for on-the-ground volunteer events that restore water bodies."
             />
             <ImpactCard
               icon={BookOpen}
@@ -183,7 +183,7 @@ export default function Donate() {
               </span>
             </h2>
             <p className="text-white/50 text-base sm:text-lg max-w-xl mx-auto">
-              Every contribution — large or small — flows directly into making MOYA stronger for all Egyptians.
+              Every contribution, large or small, flows directly into making MOYA stronger for all Egyptians.
             </p>
           </div>
 
