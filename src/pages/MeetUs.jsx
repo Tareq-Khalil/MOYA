@@ -6,11 +6,11 @@ const team = [
     name: 'Tareq Khalil',
     role: 'CEO',
     roleLabel: 'Chief Executive Officer',
-    bio: 'Leads company vision, strategy, partnerships, investor relations, and overall business development. Passionate about turning environmental challenges into scalable tech solutions.',
-    quote: 'The more you understand this world, the more you destroy yourself. That\'s why fools are happy, and intelligent peoepl live in loneliness',
+    jobDesc: 'Leads company vision, strategy, partnerships, investor relations, and overall business development.',
+    bio: 'Tareq is a driven young leader with a deep passion for environmental tech. He founded MOYA with the belief that technology can solve the water crises facing Egypt. Outside of work he enjoys field visits to rural communities along the Nile to better understand the real problems people face.',
+    quote: 'The more you understand this world, the more you destroy yourself. That\'s why fools are happy, and intelligent peoepl live in loneliness.',
     avatar: 'TQ',
     photo: 'https://i.ibb.co/BVvWX7jV/tareqkhalil.png',
-    color: 'from-ocean-500 to-ocean-700',
     accent: '#0ea5e9',
     favLang: 'Javascript, Python, Typescript, Markdown',
     extra: { label: 'Fun Fact', value: 'Has visited 5 different Nile delta regions for field research.' },
@@ -22,7 +22,8 @@ const team = [
     name: 'Mohamed El-Shamy',
     role: 'CTO',
     roleLabel: 'Chief Technical Officer',
-    bio: 'Oversees system architecture, platform development, security, and technical roadmap. Deeply passionate about clean code and scalable infrastructure.',
+    jobDesc: 'Oversees system architecture, platform development, security, and the technical roadmap.',
+    bio: 'Mohamed is the engineer behind MOYA\'s entire technical stack. He obsesses over clean architecture and performance, and has a gift for turning complex infrastructure problems into elegant solutions. When not coding, he\'s usually reading about distributed systems or mentoring junior developers.',
     quote: 'Good architecture is invisible — until it breaks.',
     avatar: 'ME',
     photo: '', // insert image URL here
@@ -38,7 +39,8 @@ const team = [
     name: 'Kevin Martin',
     role: 'CMO',
     roleLabel: 'Chief Marketing Officer',
-    bio: 'Manages branding, digital campaigns, content strategy, partnerships, and user acquisition. Believes storytelling is the most powerful tool for change.',
+    jobDesc: 'Manages branding, digital campaigns, content strategy, partnerships, and user acquisition.',
+    bio: 'Kevin has a rare combination of creative instinct and data-driven thinking. He joined MOYA because he believes environmental causes deserve world-class marketing. He\'s the person who made MOYA\'s story resonate with thousands of users across Egypt and beyond.',
     quote: 'Every campaign should leave people more informed than before.',
     avatar: 'KM',
     photo: '', // insert image URL here
@@ -54,7 +56,8 @@ const team = [
     name: 'Daniel George',
     role: 'Game Developer',
     roleLabel: 'Game Developer',
-    bio: 'Designs educational gameplay mechanics, user engagement flows, and gamification strategy. Turns complex water science into memorable interactive experiences.',
+    jobDesc: 'Designs educational gameplay mechanics, user engagement flows, and gamification strategy.',
+    bio: 'Daniel is a self-taught game developer who turned his passion for interactive media into a tool for education. He single-handedly built MOYA\'s entire Game Hub and is constantly experimenting with new ways to make water science fun and memorable for all ages.',
     quote: 'If it isn\'t fun, it isn\'t going to teach anyone anything.',
     avatar: 'DG',
     photo: '', // insert image URL here
@@ -70,7 +73,8 @@ const team = [
     name: 'Asser El-Sergany',
     role: 'GD',
     roleLabel: 'Graphic Designer',
-    bio: 'Designs all visual content, branding materials, and marketing graphics. Believes design is a form of activism when used for environmental causes.',
+    jobDesc: 'Designs all visual content, branding materials, and marketing graphics.',
+    bio: 'Asser has an eye for detail that makes everything MOYA publishes look intentional and polished. He approaches design as a form of advocacy — every visual he creates is meant to make people stop, pay attention, and care. He\'s also an avid illustrator in his spare time.',
     quote: 'Design isn\'t decoration — it\'s communication.',
     avatar: 'AS',
     photo: '', // insert image URL here
@@ -86,7 +90,8 @@ const team = [
     name: 'Yousef Ahmed',
     role: 'CCO',
     roleLabel: 'Chief Communications Officer',
-    bio: 'Manages company image, media relations, partnerships, and public communication. The voice of MOYA to the outside world.',
+    jobDesc: 'Manages company image, media relations, partnerships, and public communication.',
+    bio: 'Yousef is the voice of MOYA — calm, clear, and always on message. He has a background in journalism and public relations, which gives him a unique ability to translate technical water issues into stories the public actually cares about. He speaks three languages fluently.',
     quote: 'Clarity of message is as important as clarity of water.',
     avatar: 'YA',
     photo: '', // insert image URL here
@@ -102,7 +107,8 @@ const team = [
     name: 'Loay Alaa',
     role: 'CFO',
     roleLabel: 'Chief Financial Officer',
-    bio: 'Oversees budgeting, financial planning, accounting, and investor reporting. Keeps MOYA financially sustainable so the mission never stops.',
+    jobDesc: 'Oversees budgeting, financial planning, accounting, and investor reporting.',
+    bio: 'Loay keeps MOYA grounded in financial reality without ever losing sight of the mission. He has a sharp analytical mind and a genuine belief that sustainable impact requires sustainable finances. Outside the office he follows global impact investing trends closely.',
     quote: 'Numbers tell the story — make sure it\'s one worth reading.',
     avatar: 'LA',
     photo: '', // insert image URL here
@@ -118,7 +124,8 @@ const team = [
     name: 'Amro Ibrahim',
     role: 'CIO',
     roleLabel: 'Chief Information Officer',
-    bio: 'Leads IT strategy, systems, data management, and cybersecurity. Ensures MOYA\'s data is protected, accurate, and always available.',
+    jobDesc: 'Leads IT strategy, systems, data management, and cybersecurity.',
+    bio: 'Amro is the quiet guardian of everything that runs behind the scenes at MOYA. He ensures the platform stays fast, secure, and resilient. He has a deep background in cybersecurity and a personal commitment to making sure citizens\' data is never compromised.',
     quote: 'Data is only as clean as the systems that hold it.',
     avatar: 'AI',
     photo: '', // insert image URL here
@@ -136,7 +143,8 @@ const supervisor = {
   name: 'Dr. Mohamed Gamal',
   role: 'Supervisor',
   roleLabel: 'Project Supervisor',
-  bio: 'Senior environmental strategist guiding the MOYA initiative and mentoring the team throughout research, validation, and deployment phases. Brings decades of water policy expertise.',
+  jobDesc: 'Senior environmental strategist guiding the MOYA initiative through research, validation, and deployment.',
+  bio: 'Dr. Mohamed Gamal brings decades of hands-on experience in water governance and environmental policy to MOYA. He has advised government bodies across the region on sustainable water management and saw in MOYA the potential to bring citizen-driven accountability to a field that desperately needs it. He mentors the team not just technically but in how to think about systemic change.',
   quote: 'The next generation of water stewards is already building the tools we need.',
   avatar: 'MG',
   photo: '', // insert image URL here
@@ -290,7 +298,7 @@ function MemberModal({ member, onClose }) {
               <div className="rounded-2xl p-4" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <div className="flex items-center gap-2 mb-2">
                   <Code2 size={12} style={{ color: member.accent }} />
-                  <span className="text-white/25 text-[10px] uppercase tracking-widest">Fav Languages</span>
+                  <span className="text-white/25 text-[10px] uppercase tracking-widest">Fav Language</span>
                 </div>
                 <p className="text-white font-bold text-sm">{member.favLang}</p>
               </div>
@@ -351,7 +359,7 @@ function MemberCard({ member, onClick }) {
 
         <h3 className="font-display font-bold text-white text-lg leading-tight mb-0.5 z-10">{member.name}</h3>
         <p className="text-white/30 text-xs mb-3 z-10">{member.roleLabel}</p>
-        <p className="text-white/40 text-xs leading-relaxed line-clamp-2 max-w-[210px] z-10">{member.bio}</p>
+        <p className="text-white/40 text-xs leading-relaxed line-clamp-2 max-w-[210px] z-10">{member.jobDesc}</p>
       </div>
 
       {/* Footer bar */}
