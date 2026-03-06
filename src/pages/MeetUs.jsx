@@ -9,7 +9,7 @@ const team = [
     bio: 'Leads company vision, strategy, partnerships, investor relations, and overall business development. Passionate about turning environmental challenges into scalable tech solutions.',
     quote: 'The more you understand this world, the more you destroy yourself. That\'s why fools are happy, and intelligent peoepl live in loneliness',
     avatar: 'TQ',
-    photo: 'https://i.ibb.co/h1Bv3YNM/tareqkhalil.jpg',
+    photo: 'https://i.ibb.co/BVvWX7jV/tareqkhalil.png',
     color: 'from-ocean-500 to-ocean-700',
     accent: '#0ea5e9',
     favLang: 'Javascript, Python, Typescript, Markdown',
