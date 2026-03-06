@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Heart, ArrowRight, Droplets, Zap, Globe, BookOpen, Users, Waves, Star, ChevronDown, Sparkles } from 'lucide-react'
+import { Heart, ArrowRight, Droplets, Zap, Globe, BookOpen, Users, Waves, Star, ChevronDown, Lock, Server, MapPin, GraduationCap } from 'lucide-react'
 
 const ImpactCard = ({ icon: Icon, title, description, color, stat, statLabel }) => (
   <div className={`relative group overflow-hidden rounded-2xl p-6 border transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 cursor-default`}
@@ -196,42 +196,42 @@ export default function Donate() {
               {[
                 {
                   side: 'left',
-                  emoji: '⚡',
+                  icon: Server,
                   title: 'Faster Reporting Infrastructure',
                   body: 'Fund server costs, map APIs, and admin dashboards that let our team review and approve water-issue reports in real time — so problems get fixed, not forgotten.',
                   color: '#0ea5e9'
                 },
                 {
                   side: 'right',
-                  emoji: '🌍',
+                  icon: Globe,
                   title: 'National Reach & Partnerships',
                   body: "Support the outreach work that brings MOYA to new Egyptian cities, and the institutional partnerships that get reports in front of the people who can actually fix water infrastructure.",
                   color: '#14b8a6'
                 },
                 {
                   side: 'left',
-                  emoji: '🌊',
+                  icon: Waves,
                   title: 'On-the-Ground Volunteer Events',
                   body: "Cover the real costs behind every cleanup drive and survey — transport, safety gear, equipment rental, and event coordination so more volunteers can show up and make a difference.",
                   color: '#f43f5e'
                 },
                 {
                   side: 'right',
-                  emoji: '🎓',
+                  icon: GraduationCap,
                   title: 'Water Education Programs',
                   body: 'Bring water science, conservation, and civic awareness to Egyptian schools through workshops, Game Hub expansions, and accessible learning materials.',
                   color: '#a78bfa'
                 },
-              ].map(({ side, emoji, title, body, color }, i) => (
+              ].map(({ side, icon: StepIcon, title, body, color }, i) => (
                 <div key={i} className={`relative flex items-center gap-6 sm:gap-0 ${side === 'right' ? 'sm:flex-row-reverse' : 'sm:flex-row'}`}>
                   {/* Content */}
                   <div className={`flex-1 ${side === 'right' ? 'sm:pl-12' : 'sm:pr-12'}`}>
                     <div className="glass rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-colors group hover:scale-[1.02] duration-300"
                       style={{ boxShadow: `0 4px 30px ${color}08` }}>
                       <div className="flex items-start gap-4">
-                        <div className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                        <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
                           style={{ background: `${color}18`, border: `1px solid ${color}35` }}>
-                          {emoji}
+                          <StepIcon size={19} style={{ color }} />
                         </div>
                         <div>
                           <h3 className="text-white font-semibold text-base sm:text-lg mb-2">{title}</h3>
@@ -301,7 +301,7 @@ export default function Donate() {
               </div>
 
               <div className="flex items-center justify-center gap-6 mt-8 text-white/25 text-xs">
-                <span>Secure via Hack Club Bank</span>
+                <span className="flex items-center gap-1.5"><Lock size={11} />Secure via Hack Club Bank</span>
                 <span>·</span>
                 <span>501(c)(3) Fiscal Sponsor</span>
                 <span>·</span>
