@@ -2,14 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Favicon / Logo -->
     <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="apple-touch-icon" href="/logo.png" />
+
+    <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta -->
     <title>MOYA – Managing Optimal Yield of Aqua</title>
     <meta name="description" content="MOYA is Egypt's community-driven water management platform. Report water issues, volunteer at real events, play educational games, and help build a better water future." />
     <meta name="keywords" content="MOYA, water management, Egypt, water reporting, volunteer, water conservation, aqua, Nile, water problems, community" />
     <meta name="author" content="MOYA – WaterWorks" />
     <meta name="theme-color" content="#0a74da" />
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn previews) -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moyaeg.org/" />
     <meta property="og:title" content="MOYA – Managing Optimal Yield of Aqua" />
@@ -17,42 +25,31 @@
     <meta property="og:image" content="/logo.png" />
     <meta property="og:site_name" content="MOYA" />
     <meta property="og:locale" content="en_EG" />
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://moyaeg.org/" />
     <meta name="twitter:title" content="MOYA – Managing Optimal Yield of Aqua" />
     <meta name="twitter:description" content="Egypt's civic water platform. Report issues, volunteer, and play water-themed games to protect Egypt's water future." />
     <meta name="twitter:image" content="/logo.png" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Leaflet CSS (for interactive map) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Splash loader styles only — no global resets -->
     <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-      :root {
-        --moya-blue: #0a74da;
-        --moya-dark: #062b5b;
-        --moya-light: #e8f4fd;
-        --moya-accent: #00b4d8;
-      }
-
-      html, body {
-        height: 100%;
-        font-family: 'DM Sans', sans-serif;
-        background-color: #f0f8ff;
-        color: #062b5b;
-      }
-
-      #root {
-        min-height: 100vh;
-      }
       #splash {
         position: fixed;
         inset: 0;
-        background: var(--moya-dark);
+        background: #062b5b;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -65,7 +62,7 @@
       #splash img {
         width: 90px;
         height: auto;
-        animation: pulse 1.8s ease-in-out infinite;
+        animation: moya-pulse 1.8s ease-in-out infinite;
       }
 
       #splash p {
@@ -85,25 +82,27 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: var(--moya-accent);
-        animation: bounce 1.2s infinite;
+        background: #00b4d8;
+        animation: moya-bounce 1.2s infinite;
       }
 
       #splash .dot-loader span:nth-child(2) { animation-delay: 0.2s; }
       #splash .dot-loader span:nth-child(3) { animation-delay: 0.4s; }
 
-      @keyframes pulse {
+      @keyframes moya-pulse {
         0%, 100% { transform: scale(1); opacity: 1; }
         50% { transform: scale(1.08); opacity: 0.85; }
       }
 
-      @keyframes bounce {
+      @keyframes moya-bounce {
         0%, 80%, 100% { transform: translateY(0); }
         40% { transform: translateY(-10px); }
       }
     </style>
   </head>
+
   <body>
+    <!-- Splash screen (hidden once React loads) -->
     <div id="splash">
       <img src="/logo.png" alt="MOYA Logo" />
       <p>Managing Optimal Yield of Aqua</p>
@@ -111,7 +110,9 @@
         <span></span><span></span><span></span>
       </div>
     </div>
+
     <div id="root"></div>
+
     <script>
       window.__hideSplash = function () {
         var splash = document.getElementById('splash');
@@ -121,6 +122,7 @@
         }
       };
     </script>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
