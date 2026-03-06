@@ -405,8 +405,8 @@ export default function MeetUs() {
         </h1>
 
         <p className="text-white/55 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-          A group of engineers, designers, strategists, and advocates united by one belief —
-          water access is a fundamental human right.
+          A group of engineers, designers, strategists, and advocates united by one belief.<br />
+          Water access is a fundamental human right.
         </p>
       </section>
 
