@@ -104,20 +104,18 @@ const team = [
     socials: { twitter: '', github: '', linkedin: '' }
   },
   {
-    name: 'Loay Alaa',
+    name: 'Loay Sherif',
     role: 'CFO',
     roleLabel: 'Chief Financial Officer',
     jobDesc: 'Oversees budgeting, financial planning, accounting, and investor reporting.',
-    bio: 'I am the slave of Dsmans. I always obey him. You can meet my master on https://github.com/DsMans0021.',
-    quote: 'The world sees chains; I feel only your embrace. The world sees pain; I know only your love. To be your submissive is my identity, to be your masochist is my ecstasy. In your ownership, I have finally found myself.',
-    avatar: 'LA',
-    photo: 'https://gifdb.com/images/high/slave-498-x-280-gif-8u5o88chz48x7jpp.gif',
+    bio: '',
+    avatar: 'LS',
+    photo: 'https://gifdb.com/gif/alastor-hazbin-hotel-ban-this-server-nzbkam8qog8gk2du.html',
     color: 'from-sky-500 to-teal-500',
     accent: '#14b8a6',
-    favLang: "Master's beating",
-    extra: { label: 'Traits', value: "Masochist, Submissive, Master's Obsession" },
-    email: '',
-    phone: '',
+    favLang: "HTML, Python, C++,C#",
+    email: 'loayalaa77@gmail.com',
+    phone: '01554409916',
     socials: { twitter: '', github: '', linkedin: '' }
   },
   {
