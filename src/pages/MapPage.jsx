@@ -397,7 +397,7 @@ function ReportCard({ report, onSolveClick, currentUserId }) {
         )}
       </div>
 
-=      {!isResolved && report.status === 'approved' && currentUserId && (
+      {!isResolved && report.status === 'approved' && currentUserId && (
         <button
           onClick={() => onSolveClick(report)}
           className="mt-3 w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-green-500/15 border border-green-500/30 text-green-300 hover:bg-green-500/25 transition-colors text-xs font-medium"
@@ -426,7 +426,7 @@ export default function MapPage() {
     const { data } = await supabase
       .from('reports')
       .select('*')
-      .in('status', ['approved', 'resolved']) 
+      .in('status', ['approved', 'resolved'])
     setReports(data || [])
     setLoading(false)
   }, [])
