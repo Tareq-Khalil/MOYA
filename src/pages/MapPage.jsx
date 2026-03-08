@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet'
 import L from 'leaflet'
 import { useAuth } from '../contexts/AuthContext'
@@ -421,6 +421,10 @@ export default function MapPage() {
   const [successMsg, setSuccessMsg] = useState('')
   const [geoLoading, setGeoLoading] = useState(false)
 
+  // Ref keeps handleMapClick from capturing a stale addMode value
+  const addModeRef = useRef(false)
+  useEffect(() => { addModeRef.current = addMode }, [addMode])
+
   const fetchReports = useCallback(async () => {
     setLoading(true)
     const { data } = await supabase
@@ -433,13 +437,14 @@ export default function MapPage() {
 
   useEffect(() => { fetchReports() }, [fetchReports])
 
-  const handleMapClick = (latlng) => {
-    if (!addMode || !user) return
+  const handleMapClick = useCallback((latlng) => {
+    if (!addModeRef.current || !user) return
     setPendingPin(latlng)
     setShowModal(true)
-  }
+  }, [user])
 
   const handleUseMyLocation = () => {
+    if (!user) return
     if (!navigator.geolocation) {
       alert('Geolocation is not supported by your browser.')
       return
