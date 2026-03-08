@@ -104,18 +104,17 @@ const team = [
     socials: { twitter: '', github: '', linkedin: '' }
   },
   {
-    name: 'Loay Alaa',
+    name: 'Loay Sherif',
     role: 'CFO',
     roleLabel: 'Chief Financial Officer',
     jobDesc: 'Oversees budgeting, financial planning, accounting, and investor reporting.',
     bio: '',
     quote: '',
-    avatar: 'LA',
+    avatar: 'LS',
     photo: '',
     color: 'from-sky-500 to-teal-500',
     accent: '#14b8a6',
     favLang: "",
-    extra: { label: 'Traits', value: "" },
     email: '',
     phone: '',
     socials: { twitter: '', github: '', linkedin: '' }
