@@ -47,6 +47,7 @@ const team = [
     color: 'from-ocean-600 to-teal-600',
     accent: '#38bdf8',
     favLang: 'HTML, CSS',
+    extra: { label: '', value: '' },
     email: 'Kevinmartinmicheal@gmail.com', 
     phone: '+201129835557', 
     socials: { twitter: '#', github: '#', linkedin: 'https://www.linkedin.com/in/kevin-martin-995b7b32a?utm_source=share_via&utm_content=profile&utm_medium=member_android' }
@@ -63,6 +64,7 @@ const team = [
     color: 'from-teal-500 to-teal-700',
     accent: '#2dd4bf',
     favLang: 'Python, GDscript, & Assembly',
+    extra: { label: '', value: '' },
     email: 'danielgeorgewadea@gmail.com', 
     phone: '+201227298840', 
     socials: { Youtube: 'https://www.youtube.com/@Daniel-Geo123', github: ' https://github.com/daniel-geo', linkedin: '#' }
@@ -79,6 +81,7 @@ const team = [
     color: 'from-teal-600 to-ocean-600',
     accent: '#5eead4',
     favLang: 'C++, HTML, CSS, JS.',
+    extra: { label: '', value: '' },
     email: 'asserelsergany@gmail.com', 
     phone: '+201007974552', 
     socials: { twitter: 'https://x.com/AsSergany', github: 'https://github.com/AsserElSergany', linkedin: 'https://www.linkedin.com/in/asser-elsergany-917626351?utm_source=share_via&utm_content=profile&utm_medium=member_android' }
