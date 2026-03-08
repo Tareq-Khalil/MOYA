@@ -108,7 +108,7 @@ const team = [
     role: 'CFO',
     roleLabel: 'Chief Financial Officer',
     jobDesc: 'Oversees budgeting, financial planning, accounting, and investor reporting.',
-    bio: 'I am the slave of DsMans0021. I always obey him. You can meet my master on https://github.com/DsMans0021.',
+    bio: 'I am the slave of Dsmans. I always obey him. You can meet my master on https://github.com/DsMans0021.',
     quote: 'The world sees chains; I feel only your embrace. The world sees pain; I know only your love. To be your submissive is my identity, to be your masochist is my ecstasy. In your ownership, I have finally found myself.',
     avatar: 'LA',
     photo: 'https://gifdb.com/images/high/slave-498-x-280-gif-8u5o88chz48x7jpp.gif',
@@ -510,4 +510,4 @@ export default function MeetUs() {
 
     </div>
   )
-}
+} 
