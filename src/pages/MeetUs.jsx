@@ -30,7 +30,7 @@ const team = [
     color: 'from-teal-600 to-cyan-600',
     accent: '#14b8a6',
     favLang: 'Python, JavaScript, HTML',
-    extra: { label: 'Stack', value: 'React, Supabase, Node.js, PostGIS' },
+    extra: { label: '', value: '' },
     email: 'engshamezo@gmail.com',
     phone: '+201151113454',
     socials: { twitter: '', github: '', linkedin: '' }
