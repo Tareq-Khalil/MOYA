@@ -86,6 +86,23 @@ const team = [
     phone: '+201007974552',
     socials: { twitter: 'https://x.com/AsSergany', github: 'https://github.com/AsserElSergany', linkedin: 'https://www.linkedin.com/in/asser-elsergany-917626351' }
   },
+{
+    name: 'Amro Ibrahim',
+    role: 'CIO',
+    roleLabel: 'Chief Information Officer',
+    jobDesc: 'Leads IT strategy, systems, data management, and cybersecurity.',
+    bio: 'A highschooler trying to build up a career in computer science.',
+    quote: '"Your focus is your reality" - Yoda',
+    avatar: 'AI',
+    photo: 'https://i.ibb.co/Tq8yV02g/amro-ibrahim.png',
+    color: 'from-sky-600 to-teal-600',
+    accent: '#38bdf8',
+    favLang: 'Python, C++',
+    extra: { label: '', value: '' },
+    email: 'amrosalah762007@gmail.com',
+    phone: '+201004646530',
+    socials: { twitter: '', github: 'https://github.com/Amro7X', linkedin: 'https://eg.linkedin.com/in/amro-ibrahim-228105362' }
+  }, 
   {
     name: 'Yossef Ahmed',
     role: 'CCO',
@@ -103,7 +120,7 @@ const team = [
     phone: '+201147107619',
     socials: { twitter: '', github: 'https://github.com/YossefAlex', linkedin: 'https://www.linkedin.com/in/yossef-ahmed-20ba89368/' }
   },
-  {
+{
     name: 'Loay Sherif',
     role: 'CFO',
     roleLabel: 'Chief Financial Officer',
@@ -118,23 +135,6 @@ const team = [
     email: 'loayalaa77@gmail.com',
     phone: '+201554409916',
     socials: { twitter: '', github: 'https://github.com/SinisterClown86', linkedin: '' }
-  },
-  {
-    name: 'Amro Ibrahim',
-    role: 'CIO',
-    roleLabel: 'Chief Information Officer',
-    jobDesc: 'Leads IT strategy, systems, data management, and cybersecurity.',
-    bio: 'A highschooler trying to build up a career in computer science.',
-    quote: '"Your focus is your reality" - Yoda',
-    avatar: 'AI',
-    photo: 'https://i.ibb.co/Tq8yV02g/amro-ibrahim.png',
-    color: 'from-sky-600 to-teal-600',
-    accent: '#38bdf8',
-    favLang: 'Python, C++',
-    extra: { label: '', value: '' },
-    email: 'amrosalah762007@gmail.com',
-    phone: '+201004646530',
-    socials: { twitter: '', github: 'https://github.com/Amro7X', linkedin: 'https://eg.linkedin.com/in/amro-ibrahim-228105362' }
   }
 ]
 
