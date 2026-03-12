@@ -85,7 +85,7 @@ export const GAME_REGISTRY = [
   // Replace all YOUR_* placeholders and the URLs/image paths below.
   {
     id: 'featured-game',
-    name: 'Sunset Valley',                  // ← replace
+    name: 'Water Quest',                  // ← replace
     tagline: 'A Stardew Valley Adventure',            // ← replace (one short line)
     description: '',   // ← replace
     type: 'external',
