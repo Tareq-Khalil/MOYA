@@ -52,88 +52,6 @@ const HowStep = ({ number, title, description }) => (
   </div>
 )
 
-// ── Mini preview card for the homepage game section ──────────────────────
-// type: 'featured' | 'medium' | 'standard'
-function HomeGamePreviewCard({ emoji, name, label, desc, type = 'standard', accentColor, coverImage, externalUrl }) {
-  const isCover = (type === 'featured' || type === 'medium') && coverImage
-
-  if (isCover) {
-    return (
-      <div className={`relative overflow-hidden rounded-xl glass border border-white/10 group hover:border-white/20 transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
-        type === 'featured' ? 'sm:col-span-2 min-h-[130px]' : 'min-h-[100px]'
-      }`}
-        onClick={() => externalUrl && window.open(externalUrl, '_blank', 'noopener,noreferrer')}
-      >
-        {/* Cover image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-          style={{ backgroundImage: `url(${coverImage})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
-
-        {/* Badges */}
-        <div className="absolute top-2 left-2 flex gap-1.5 z-10">
-          {type === 'featured' && (
-            <span className="flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold"
-              style={{ background: `${accentColor || '#f59e0b'}30`, border: `1px solid ${accentColor || '#f59e0b'}60`, color: accentColor || '#f59e0b' }}>
-              <Crown size={8} />FEATURED
-            </span>
-          )}
-          {type === 'medium' && (
-            <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-indigo-500/30 border border-indigo-400/50 text-indigo-300 text-[10px] font-bold">
-              <Sparkles size={8} />PREMIUM
-            </span>
-          )}
-          <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium border ${
-            label === 'Free'
-              ? 'bg-teal-500/20 text-teal-300 border border-teal-500/30'
-              : 'bg-yellow-500/15 text-yellow-300 border border-yellow-500/25'}`}>
-            {label}
-          </span>
-        </div>
-
-        {/* Content */}
-        <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
-          <div className="flex items-end justify-between gap-2">
-            <div className="min-w-0">
-              <span className="text-white font-semibold text-xs sm:text-sm block truncate drop-shadow">{name}</span>
-              <p className="text-white/45 text-[10px] truncate hidden sm:block">{desc}</p>
-            </div>
-            <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
-              <div className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[10px] font-bold"
-                style={{
-                  background: `linear-gradient(135deg, ${accentColor || '#f59e0b'}, ${accentColor || '#f59e0b'}bb)`,
-                  color: '#000',
-                }}>
-                <ExternalLink size={9} />Play
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  // Standard preview row
-  return (
-    <div className="flex items-center gap-3 glass rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 group hover:bg-white/10 transition-colors">
-      <span className="text-base sm:text-xl flex-shrink-0">{emoji}</span>
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2">
-          <span className="text-white font-medium text-xs sm:text-sm">{name}</span>
-          <span className={`badge text-[10px] ${label === 'Free'
-            ? 'bg-teal-500/20 text-teal-300 border border-teal-500/30'
-            : 'bg-yellow-500/15 text-yellow-300 border border-yellow-500/25'}`}>
-            {label}
-          </span>
-        </div>
-        <p className="text-white/40 text-xs truncate">{desc}</p>
-      </div>
-      <ChevronDown size={13} className="text-white/20 -rotate-90 flex-shrink-0" />
-    </div>
-  )
-}
-
 export default function Home() {
   const { user } = useAuth()
 
@@ -372,6 +290,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center">
 
+            {/* ── Left: text + game list ── */}
             <div>
               <div className="inline-flex items-center gap-2 glass px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-5 sm:mb-6">
                 <Gamepad2 size={13} className="text-violet-300" />
@@ -391,51 +310,71 @@ export default function Home() {
               </p>
 
               {/*
-                ── GAME PREVIEW LIST ──────────────────────────────────────────
-                The first 2 entries below are YOUR custom games (featured + medium).
-                They always show at the top. The remaining 2 are standard games.
-                To update: replace the name, label, desc, accentColor, coverImage,
-                and externalUrl for the featured/medium games.
+                ── GAME LIST ────────────────────────────────────────────────
+                Your 2 custom games are ALWAYS first (gold + indigo rows).
+                Replace YOUR_FEATURED_GAME_NAME / YOUR_MEDIUM_GAME_NAME
+                and their desc lines with your real game details.
               */}
               <div className="flex flex-col gap-2 sm:gap-3 mb-6 sm:mb-8">
 
-                {/* ── YOUR FEATURED GAME (always first, big cover card) ── */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
-                  <HomeGamePreviewCard
-                    type="featured"
-                    name="Water Quest"          // ← replace
-                    label="500 pts"
-                    desc="Your featured game description"   // ← replace
-                    accentColor="#1E93B3"                   // ← match your game's accent
-                    coverImage="https://i.ibb.co/XxW9K3DM/sunset-valley.jpg"  // ← replace
-                    externalUrl="https://moyaeg.org/games" // ← replace
-                  />
-
-                  {/* ── YOUR MEDIUM GAME (second, right column) ── */}
-                  <HomeGamePreviewCard
-                    type="medium"
-                    name="Water Dispatch"            // ← replace
-                    label="250 pts"
-                    desc="Help the water management team solve real-world water challenges through strategic decision-making and problem-solving!"     // ← replace
-                    accentColor="#6366f1"                   // ← match your game's accent
-                    coverImage="https://i.ibb.co/sv5GmzRT/water-dispatch.jpg"    // ← replace
-                    externalUrl="https://moyaeg.org/games" // ← replace
-                  />
+                {/* ── YOUR FEATURED GAME — gold highlight row ── */}
+                <div className="flex items-center gap-3 rounded-xl px-3 sm:px-4 py-3 group hover:brightness-110 transition-all border border-amber-500/25 cursor-pointer"
+                  style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.10), rgba(245,158,11,0.04))' }}>
+                  <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: 'rgba(245,158,11,0.2)', border: '1px solid rgba(245,158,11,0.4)' }}>
+                    <Crown size={14} className="text-amber-400" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-white font-semibold text-xs sm:text-sm">Water Quest</span>{/* ← replace */}
+                      <span className="badge text-[10px] font-bold" style={{ background:'rgba(245,158,11,0.15)', border:'1px solid rgba(245,158,11,0.35)', color:'#fbbf24' }}>500 pts</span>
+                      <span className="badge bg-orange-500/20 text-orange-300 border border-orange-400/30 text-[10px] font-bold tracking-wide">NEW</span>
+                    </div>
+                    <p className="text-white/40 text-xs truncate mt-0.5">A Stardew Valley Adventure</p>{/* ← replace */}
+                  </div>
+                  <ExternalLink size={13} className="text-amber-400/50 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
 
-                {/* ── Standard game rows — keep 2 here to balance the layout ── */}
-                <HomeGamePreviewCard
-                  emoji="🔧"
-                  name="Pipeline Puzzle"
-                  label="10 pts"
-                  desc="Rotate pipes to route water infrastructure"
-                />
-                <HomeGamePreviewCard
-                  emoji="🌊"
-                  name="Flood Defense"
-                  label="20 pts"
-                  desc="Real-time strategy: protect homes from floods"
-                />
+                {/* ── YOUR MEDIUM GAME — indigo highlight row ── */}
+                <div className="flex items-center gap-3 rounded-xl px-3 sm:px-4 py-3 group hover:brightness-110 transition-all border border-indigo-500/25 cursor-pointer"
+                  style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.10), rgba(99,102,241,0.04))' }}>
+                  <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 bg-indigo-500/20 border border-indigo-500/35">
+                    <Sparkles size={14} className="text-indigo-400" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-white font-semibold text-xs sm:text-sm">Water Dispatch</span>{/* ← replace */}
+                      <span className="badge bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 text-[10px] font-bold">250 pts</span>
+                      <span className="badge bg-orange-500/20 text-orange-300 border border-orange-400/30 text-[10px] font-bold tracking-wide">NEW</span>
+                    </div>
+                    <p className="text-white/40 text-xs truncate mt-0.5">Fix, Learn, Earn</p>{/* ← replace */}
+                  </div>
+                  <ExternalLink size={13} className="text-indigo-400/50 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+
+                {/* ── Standard game rows ── */}
+                {[
+                  { emoji: '🔧', name: 'Pipeline Puzzle', label: '10 pts',  desc: 'Rotate pipes to route water infrastructure' },
+                  { emoji: '🌊', name: 'Flood Defense',   label: '20 pts',  desc: 'Real-time strategy: protect homes from floods' },
+                  { emoji: '🌍', name: 'Eco Decisions',   label: '20 pts',  desc: 'Make real-world water management choices' },
+                  { emoji: '🧠', name: 'Water Trivia',    label: 'Free',    desc: 'Timed quiz on water science & global issues' },
+                ].map(({ emoji, name, label, desc }) => (
+                  <div key={name} className="flex items-center gap-3 glass rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 group hover:bg-white/10 transition-colors">
+                    <span className="text-base sm:text-xl flex-shrink-0">{emoji}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="text-white font-medium text-xs sm:text-sm">{name}</span>
+                        <span className={`badge text-[10px] ${label === 'Free'
+                          ? 'bg-teal-500/20 text-teal-300 border border-teal-500/30'
+                          : 'bg-yellow-500/15 text-yellow-300 border border-yellow-500/25'}`}>
+                          {label}
+                        </span>
+                      </div>
+                      <p className="text-white/40 text-xs truncate">{desc}</p>
+                    </div>
+                    <ChevronDown size={13} className="text-white/20 -rotate-90 flex-shrink-0" />
+                  </div>
+                ))}
               </div>
 
               <div className="flex flex-col xs:flex-row gap-3">
@@ -450,69 +389,164 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ── Right side: animated mock game cards ── */}
-            <div className="relative h-80 sm:h-96 hidden lg:block">
-              <div className="absolute inset-0 bg-violet-500/5 rounded-3xl blur-3xl" />
+            {/* ──────────────────────────────────────────────────────────────
+                Right: stacked card deck — 5 cards layered on top of each other
+                Stack order (back → front): Trivia → Pipeline → Flood → Medium → Featured
+                Your 2 custom games are the front-most (most visible) cards.
+            ────────────────────────────────────────────────────────────── */}
+            <div className="relative hidden lg:block" style={{ height: '500px' }}>
 
-              <div className="absolute top-6 left-8 right-8 glass rounded-3xl p-5 border border-violet-500/15 rotate-2 opacity-60">
+              {/* Ambient glows */}
+              <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full pointer-events-none"
+                style={{ background: 'radial-gradient(ellipse, rgba(245,158,11,0.07) 0%, transparent 70%)' }} />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-40 rounded-full pointer-events-none"
+                style={{ background: 'radial-gradient(ellipse, rgba(99,102,241,0.08) 0%, transparent 70%)' }} />
+
+              {/* ── Card 5 (back): Water Trivia ── */}
+              <div className="absolute left-12 right-12 top-2 glass rounded-3xl px-5 py-4 border border-white/8 rotate-3 opacity-35 pointer-events-none" style={{ zIndex: 1 }}>
+                <div className="flex items-center gap-3">
+                  <span className="text-lg">🧠</span>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-white font-semibold text-sm">Water Trivia</p>
+                    <p className="text-white/30 text-xs">10 timed questions · free</p>
+                  </div>
+                  <span className="badge bg-teal-500/15 text-teal-300 border border-teal-500/20 text-[10px]">Free</span>
+                </div>
+              </div>
+
+              {/* ── Card 4: Pipeline Puzzle ── */}
+              <div className="absolute left-8 right-8 top-10 glass rounded-3xl p-5 border border-white/10 -rotate-1 opacity-50 pointer-events-none" style={{ zIndex: 2 }}>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-xl">🔧</span>
+                  <div>
+                    <p className="text-white font-semibold text-sm">Pipeline Puzzle</p>
+                    <p className="text-white/35 text-xs">Level 2 · 12 moves</p>
+                  </div>
+                  <span className="ml-auto badge bg-yellow-500/15 text-yellow-300 border border-yellow-500/20 text-[10px]">Medium</span>
+                </div>
+                <div className="grid grid-cols-4 gap-1 opacity-50">
+                  {['━','┗','┓','┃','┃','┏','┛','━'].map((s, i) => (
+                    <div key={i} className="w-full aspect-square glass rounded-lg flex items-center justify-center text-ocean-300 text-sm font-bold border border-white/8">{s}</div>
+                  ))}
+                </div>
+              </div>
+
+              {/* ── Card 3: Flood Defense ── */}
+              <div className="absolute left-5 right-5 top-24 glass rounded-3xl p-5 border border-blue-500/15 rotate-1 opacity-65 pointer-events-none" style={{ zIndex: 3 }}>
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-2xl">🌊</span>
                   <div>
                     <p className="text-white font-semibold text-sm">Flood Defense</p>
-                    <p className="text-white/40 text-xs">Protect 3 homes · 60s round</p>
+                    <p className="text-white/35 text-xs">Protect 3 homes · 60s round</p>
                   </div>
-                  <span className="ml-auto badge bg-red-500/15 text-red-300 border border-red-500/25 text-[10px]">Hard</span>
+                  <span className="ml-auto badge bg-red-500/15 text-red-300 border border-red-500/20 text-[10px]">Hard</span>
                 </div>
-                <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                  <div className="h-full w-2/3 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full" />
+                <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-full w-2/3 rounded-full" style={{ background: 'linear-gradient(90deg, #3b82f6, #22d3ee)' }} />
                 </div>
               </div>
 
-              <div className="absolute top-16 left-4 right-4 glass rounded-3xl p-5 border border-white/15 -rotate-1 opacity-80">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-2xl">🔧</span>
-                  <div>
-                    <p className="text-white font-semibold text-sm">Pipeline Puzzle</p>
-                    <p className="text-white/40 text-xs">Level 2: Creek · 12 moves</p>
+              {/* ── Card 2: YOUR MEDIUM GAME ── */}
+              {/* Replace YOUR_MEDIUM_GAME_NAME below */}
+              <div className="absolute left-2 right-2 top-40 rounded-3xl p-5 border -rotate-0.5 opacity-88 pointer-events-none"
+                style={{
+                  zIndex: 4,
+                  background: 'linear-gradient(135deg, rgba(49,46,129,0.70) 0%, rgba(8,47,73,0.90) 100%)',
+                  borderColor: 'rgba(99,102,241,0.40)',
+                  backdropFilter: 'blur(14px)',
+                }}>
+                {/* Top accent line */}
+                <div className="absolute top-0 left-8 right-8 h-px rounded-full"
+                  style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.7), transparent)' }} />
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: 'rgba(99,102,241,0.25)', border: '1px solid rgba(99,102,241,0.45)' }}>
+                    <Sparkles size={16} className="text-indigo-300" />
                   </div>
-                  <span className="ml-auto badge bg-yellow-500/15 text-yellow-300 border border-yellow-500/25 text-[10px]">Medium</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="badge bg-indigo-500/25 text-indigo-300 border border-indigo-400/40 text-[10px] font-bold tracking-wide">PREMIUM</span>
+                      <span className="badge bg-orange-500/20 text-orange-300 border border-orange-400/30 text-[10px] font-bold">NEW</span>
+                    </div>
+                    <p className="text-white font-bold text-sm leading-snug">YOUR_MEDIUM_GAME_NAME</p>{/* ← replace */}
+                    <p className="text-indigo-300/60 text-xs mt-0.5">External game · 150 pts</p>
+                  </div>
+                  <div className="flex items-center gap-1 rounded-lg px-2 py-1 flex-shrink-0"
+                    style={{ background: 'rgba(99,102,241,0.2)', border: '1px solid rgba(99,102,241,0.35)' }}>
+                    <Star size={9} className="text-indigo-300" />
+                    <span className="text-indigo-300 text-[10px] font-bold">150</span>
+                  </div>
                 </div>
-                <div className="grid grid-cols-4 gap-1 opacity-70">
-                  {['━','┗','┓','┃','┃','┏','┛','━','┗','━','━','┛'].map((s, i) => (
-                    <div key={i} className="w-full aspect-square glass rounded-lg flex items-center justify-center text-ocean-300 text-lg font-bold border border-white/10">{s}</div>
+                <div className="flex gap-1.5">
+                  {['Unique Gameplay','Water Themed','Score Tracking'].map(f => (
+                    <span key={f} className="text-[10px] px-2 py-0.5 rounded-md text-indigo-300/60 border border-indigo-500/20"
+                      style={{ background: 'rgba(99,102,241,0.10)' }}>{f}</span>
                   ))}
                 </div>
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 glass-light rounded-3xl p-5 border border-teal-400/20 shadow-2xl shadow-black/30">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xl">🧠</span>
-                  <span className="text-white font-semibold text-sm">Water Trivia</span>
-                  <span className="ml-auto badge bg-teal-500/20 text-teal-300 border border-teal-500/30 text-[10px]">Free</span>
-                </div>
-                <p className="text-white text-sm font-medium mb-3">What % of Earth's water is freshwater?</p>
-                <div className="grid grid-cols-2 gap-2">
-                  {['3%', '10%', '25%', '50%'].map((opt, i) => (
-                    <div key={opt} className={`px-3 py-2 rounded-xl text-xs font-medium text-center border transition-colors ${
-                      i === 0
-                        ? 'bg-teal-500/25 border-teal-400/60 text-teal-200'
-                        : 'glass border-white/10 text-white/50'
-                    }`}>{opt}</div>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/10">
-                  <div className="flex items-center gap-1.5">
-                    <Zap size={12} className="text-yellow-400" />
-                    <span className="text-yellow-300 text-xs font-medium">+15 pts streak bonus</span>
+              {/* ── Card 1 (front): YOUR FEATURED GAME ── */}
+              {/* Replace YOUR_FEATURED_GAME_NAME and the description line below */}
+              <div className="absolute left-0 right-0 bottom-0 rounded-3xl p-6 border shadow-2xl"
+                style={{
+                  zIndex: 5,
+                  background: 'linear-gradient(135deg, rgba(8,47,73,0.98) 0%, rgba(20,60,100,0.95) 60%, rgba(12,74,110,0.90) 100%)',
+                  borderColor: 'rgba(245,158,11,0.45)',
+                  backdropFilter: 'blur(20px)',
+                  boxShadow: '0 24px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(245,158,11,0.10), 0 0 48px rgba(245,158,11,0.06)',
+                }}>
+                {/* Gold shimmer top border */}
+                <div className="absolute top-0 left-8 right-8 h-px rounded-full"
+                  style={{ background: 'linear-gradient(90deg, transparent, rgba(245,158,11,0.75), transparent)' }} />
+                {/* Subtle corner glows */}
+                <div className="absolute top-0 left-0 w-24 h-24 rounded-full pointer-events-none"
+                  style={{ background: 'radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%)' }} />
+                <div className="absolute bottom-0 right-0 w-32 h-32 rounded-full pointer-events-none"
+                  style={{ background: 'radial-gradient(circle, rgba(245,158,11,0.04) 0%, transparent 70%)' }} />
+
+                <div className="flex items-start gap-3 mb-4 relative">
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: 'rgba(245,158,11,0.22)', border: '1px solid rgba(245,158,11,0.50)' }}>
+                    <Crown size={20} className="text-amber-400" />
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Trophy size={12} className="text-ocean-300" />
-                    <span className="text-ocean-300 text-xs">Q 7/10</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1 flex-wrap">
+                      <span className="text-[10px] font-bold tracking-wider px-2.5 py-0.5 rounded-full"
+                        style={{ background: 'rgba(245,158,11,0.20)', border: '1px solid rgba(245,158,11,0.45)', color: '#fbbf24' }}>
+                        ★ FEATURED
+                      </span>
+                      <span className="badge bg-orange-500/25 text-orange-300 border border-orange-400/40 text-[10px] font-bold">NEW</span>
+                    </div>
+                    <p className="text-white font-bold text-base leading-snug">YOUR_FEATURED_GAME_NAME</p>{/* ← replace */}
+                    <p className="text-amber-400/65 text-xs mt-0.5">Premium external game · 500 pts to unlock</p>
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-xl px-3 py-1.5 flex-shrink-0"
+                    style={{ background: 'rgba(245,158,11,0.18)', border: '1px solid rgba(245,158,11,0.40)' }}>
+                    <Star size={11} className="text-amber-400" />
+                    <span className="text-amber-300 text-xs font-bold font-mono">500</span>
+                  </div>
+                </div>
+
+                <p className="text-white/48 text-xs leading-relaxed mb-4 relative">
+                  Your featured game description — a line that captures what makes it special.{/* ← replace */}
+                </p>
+
+                <div className="flex items-center justify-between relative">
+                  <div className="flex gap-1.5 flex-wrap">
+                    {['Premium', 'External', 'Featured', 'Expert'].map(t => (
+                      <span key={t} className="text-[10px] px-2 py-0.5 rounded-md text-amber-300/55 border border-amber-500/18"
+                        style={{ background: 'rgba(245,158,11,0.07)' }}>{t}</span>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs flex-shrink-0 ml-2"
+                    style={{ color: 'rgba(245,158,11,0.50)' }}>
+                    <ExternalLink size={11} />
+                    <span>Opens externally</span>
                   </div>
                 </div>
               </div>
-            </div>
 
+            </div>{/* end stacked deck */}
           </div>
         </div>
       </section>
