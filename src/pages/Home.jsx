@@ -403,7 +403,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                   <HomeGamePreviewCard
                     type="featured"
-                    name="Sunset Valley"          // ← replace
+                    name="Water Quest"          // ← replace
                     label="500 pts"
                     desc="Your featured game description"   // ← replace
                     accentColor="#1E93B3"                   // ← match your game's accent
