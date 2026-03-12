@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Droplets, Map, Star, Shield, ArrowRight, ChevronDown, Waves, AlertTriangle, TrendingUp, Gamepad2, Brain, Puzzle, Trophy, Zap, Heart, Users, Globe, Crown, ExternalLink, Sparkles } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
-import Footer from '../components/Footer'
 
 const StatCard = ({ number, label, icon: Icon }) => (
   <div className="card text-center group hover:scale-105 transition-transform cursor-default">
