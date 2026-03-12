@@ -81,16 +81,14 @@ import EcoDecisions from './games/EcoDecisions'
 
 export const GAME_REGISTRY = [
 
-  // ── FEATURED HERO GAME (large card, 500 pts, external link) ──────────────
-  // Replace all YOUR_* placeholders and the URLs/image paths below.
   {
     id: 'featured-game',
-    name: 'Water Quest',                  // ← replace
-    tagline: 'A Stardew Valley Adventure',            // ← replace (one short line)
+    name: 'Water Quest',                
+    tagline: 'A Stardew Valley Adventure',           
     description: 'In a world where no one cares about their water consumption, your goal is to decrease your water consumption as much as you can. "Save water today to secure tomorrow."',   // ← replace
     type: 'external',
-    externalUrl: 'https://daniel-geo.itch.io/water-quest', // ← replace
-    coverImage: 'https://i.ibb.co/XxW9K3DM/sunset-valley.jpg',   // ← replace (put image in /public/images/games/)
+    externalUrl: 'https://daniel-geo.itch.io/water-quest', 
+    coverImage: 'https://i.ibb.co/XxW9K3DM/sunset-valley.jpg',  
     emoji: '🎮',
     icon: Gamepad2,
     cost: 500,
@@ -103,19 +101,17 @@ export const GAME_REGISTRY = [
     newBadge: true,
   },
 
-  // ── MEDIUM EXTERNAL GAME ─────────────────────────────────────────────────
-  // Replace all YOUR_* placeholders and the URLs/image paths below.
   {
     id: 'medium-game',
-    name: 'Water Dispatch',                    // ← replace
-    tagline: 'Fix, Learn, Earn',              // ← replace
-    description: 'Help the water management team solve real-world water challenges through strategic decision-making and problem-solving!',     // ← replace
+    name: 'Water Dispatch',                   
+    tagline: 'Fix, Learn, Earn',            
+    description: 'Help the water management team solve real-world water challenges through strategic decision-making and problem-solving!',     
     type: 'external',
-    externalUrl: 'https://le-sinister.itch.io/water-patch',  // ← replace
-    coverImage: 'https://i.ibb.co/sv5GmzRT/water-dispatch.jpg',     // ← replace (put image in /public/images/games/)
+    externalUrl: 'https://le-sinister.itch.io/water-patch',  
+    coverImage: 'https://i.ibb.co/sv5GmzRT/water-dispatch.jpg',     
     emoji: '🕹️',
     icon: Gamepad2,
-    cost: 250,                                        // ← adjust price as needed
+    cost: 250,                                      
     difficulty: 'Hard',
     accentColor: '#6366f1',
     gradient: 'from-indigo-600/40 to-violet-900/60',
