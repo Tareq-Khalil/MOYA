@@ -356,8 +356,6 @@ export default function Home() {
                 {[
                   { emoji: '🔧', name: 'Pipeline Puzzle', label: '10 pts',  desc: 'Rotate pipes to route water infrastructure' },
                   { emoji: '🌊', name: 'Flood Defense',   label: '20 pts',  desc: 'Real-time strategy: protect homes from floods' },
-                  { emoji: '🌍', name: 'Eco Decisions',   label: '20 pts',  desc: 'Make real-world water management choices' },
-                  { emoji: '🧠', name: 'Water Trivia',    label: 'Free',    desc: 'Timed quiz on water science & global issues' },
                 ].map(({ emoji, name, label, desc }) => (
                   <div key={name} className="flex items-center gap-3 glass rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 group hover:bg-white/10 transition-colors">
                     <span className="text-base sm:text-xl flex-shrink-0">{emoji}</span>
