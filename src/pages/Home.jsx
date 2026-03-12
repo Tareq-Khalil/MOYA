@@ -408,7 +408,7 @@ export default function Home() {
                     desc="Your featured game description"   // ← replace
                     accentColor="#1E93B3"                   // ← match your game's accent
                     coverImage="https://i.ibb.co/XxW9K3DM/sunset-valley.jpg"  // ← replace
-                    externalUrl="https://daniel-geo.itch.io/water-quest" // ← replace
+                    externalUrl="https://moyaeg.org/games" // ← replace
                   />
 
                   {/* ── YOUR MEDIUM GAME (second, right column) ── */}
@@ -419,7 +419,7 @@ export default function Home() {
                     desc="Help the water management team solve real-world water challenges through strategic decision-making and problem-solving!"     // ← replace
                     accentColor="#6366f1"                   // ← match your game's accent
                     coverImage="https://i.ibb.co/sv5GmzRT/water-dispatch.jpg"    // ← replace
-                    externalUrl="https://le-sinister.itch.io/water-patch" // ← replace
+                    externalUrl="https://moyaeg.org/games" // ← replace
                   />
                 </div>
 
