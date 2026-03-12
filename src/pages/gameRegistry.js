@@ -20,31 +20,58 @@
  *  4. (Optional) Add postMessage bridge for score reporting — see
  *     docs/GAME_BRIDGE.md for the message format your game should emit.
  *
+ *  FEATURED GAME (BIG CARD — 500 pts):
+ *  ────────────────────────────────────
+ *  There is exactly ONE featured game at the top of the grid.
+ *  It is identified by  featured: true  in its registry entry.
+ *  It uses type: 'external' and an externalUrl to open in a new tab.
+ *  To set it up:
+ *    1. Replace YOUR_FEATURED_GAME_NAME with the game's display name
+ *    2. Replace YOUR_FEATURED_GAME_TAGLINE with a short one-liner
+ *    3. Replace YOUR_FEATURED_GAME_DESCRIPTION with a longer description
+ *    4. Replace /images/games/featured-cover.jpg with your cover image path
+ *       (place the image in public/images/games/)
+ *    5. Replace https://your-featured-game-url.com with the external link
+ *    6. Adjust cost if needed (default: 500)
+ *
+ *  MEDIUM EXTERNAL GAME:
+ *  ─────────────────────
+ *  Identified by  mediumCard: true  in its registry entry.
+ *  Same setup steps as the featured game above but uses medium sizing.
+ *    1. Replace YOUR_MEDIUM_GAME_NAME, tagline, description
+ *    2. Replace /images/games/medium-cover.jpg with your cover image
+ *    3. Replace https://your-medium-game-url.com with the external link
+ *    4. Set your desired cost (default: 150)
+ *
  *  GAME ENTRY FIELDS:
  *  ──────────────────
- *  id          string   Unique identifier. Must match game_unlocks DB value.
- *  name        string   Display name
- *  tagline     string   Short one-liner shown on card
- *  description string   Longer description shown on card
- *  type        'react' | 'iframe'
- *  component   ReactComponent   (only for type: 'react')
- *  iframeSrc   string           (only for type: 'iframe') path under /public
- *  iframeSize  object           (optional) { width, height } defaults to full
- *  engine      string           (optional) 'unity' | 'godot' | 'construct' | 'custom'
- *  emoji       string   Emoji icon
- *  cost        number   AquaPoints needed to unlock. 0 = free.
- *  difficulty  'Easy' | 'Medium' | 'Hard' | 'Expert'
- *  tags        string[]
- *  features    string[]  Up to 4 bullet-point features shown on card
- *  accentColor string   Hex color for card glow/button accent
- *  gradient    string   Tailwind gradient classes for card background
- *  engineBadge boolean  Whether to show a "Made with [Engine]" badge
- *  newBadge    boolean  Show a "NEW" badge on the card
- *  comingSoon  boolean  Card shows "Coming Soon" overlay instead of play
+ *  id           string   Unique identifier. Must match game_unlocks DB value.
+ *  name         string   Display name
+ *  tagline      string   Short one-liner shown on card
+ *  description  string   Longer description shown on card
+ *  type         'react' | 'iframe' | 'external'
+ *  component    ReactComponent   (only for type: 'react')
+ *  iframeSrc    string           (only for type: 'iframe') path under /public
+ *  externalUrl  string           (only for type: 'external') opens in new tab
+ *  coverImage   string           (for external type) path to cover image
+ *  iframeSize   object           (optional) { width, height } defaults to full
+ *  engine       string           (optional) 'unity' | 'godot' | 'construct' | 'custom'
+ *  emoji        string   Emoji icon (used on non-cover cards)
+ *  cost         number   AquaPoints needed to unlock. 0 = free.
+ *  difficulty   'Easy' | 'Medium' | 'Hard' | 'Expert'
+ *  tags         string[]
+ *  features     string[]  Up to 4 bullet-point features shown on card
+ *  accentColor  string   Hex color for card glow/button accent
+ *  gradient     string   Tailwind gradient classes for card background
+ *  featured     boolean  Renders as the large hero card at the top
+ *  mediumCard   boolean  Renders as a medium-sized card
+ *  engineBadge  boolean  Whether to show a "Made with [Engine]" badge
+ *  newBadge     boolean  Show a "NEW" badge on the card
+ *  comingSoon   boolean  Card shows "Coming Soon" overlay instead of play
  * ═══════════════════════════════════════════════════════════════════
  */
 
-import { Brain, Puzzle, Droplets, Shield, Sparkles, Award, Gamepad2 } from 'lucide-react'
+import { Brain, Puzzle, Droplets, Shield, Sparkles, Award, Gamepad2, Star } from 'lucide-react'
 import WaterTrivia from './games/WaterTrivia'
 import PipelinePuzzle from './games/PipelinePuzzle'
 import WaterSorter from './games/WaterSorter'
@@ -53,6 +80,52 @@ import FloodDefense from './games/FloodDefense'
 import EcoDecisions from './games/EcoDecisions'
 
 export const GAME_REGISTRY = [
+
+  // ── FEATURED HERO GAME (large card, 500 pts, external link) ──────────────
+  // Replace all YOUR_* placeholders and the URLs/image paths below.
+  {
+    id: 'featured-game',
+    name: 'Sunset Valley',                  // ← replace
+    tagline: 'A Stardew Valley Adventure',            // ← replace (one short line)
+    description: 'YOUR_FEATURED_GAME_DESCRIPTION',   // ← replace
+    type: 'external',
+    externalUrl: 'https://daniel-geo.itch.io/water-quest', // ← replace
+    coverImage: 'https://i.ibb.co/XxW9K3DM/sunset-valley.jpg',   // ← replace (put image in /public/images/games/)
+    emoji: '🎮',
+    icon: Gamepad2,
+    cost: 500,
+    difficulty: 'Expert',
+    accentColor: '#f59e0b',
+    gradient: 'from-amber-600/40 to-orange-900/60',
+    tags: ['Featured', 'Premium', 'External'],
+    features: ['Premium Experience', 'Full Game Access', 'Leaderboards', 'Water Education'],
+    featured: true,
+    newBadge: true,
+  },
+
+  // ── MEDIUM EXTERNAL GAME ─────────────────────────────────────────────────
+  // Replace all YOUR_* placeholders and the URLs/image paths below.
+  {
+    id: 'medium-game',
+    name: 'Water Dispatch',                    // ← replace
+    tagline: 'Fix, Learn, Earn',              // ← replace
+    description: 'Help the water management team solve real-world water challenges through strategic decision-making and problem-solving!',     // ← replace
+    type: 'external',
+    externalUrl: 'https://le-sinister.itch.io/water-patch',  // ← replace
+    coverImage: 'https://i.ibb.co/sv5GmzRT/water-dispatch.jpg',     // ← replace (put image in /public/images/games/)
+    emoji: '🕹️',
+    icon: Gamepad2,
+    cost: 250,                                        // ← adjust price as needed
+    difficulty: 'Hard',
+    accentColor: '#6366f1',
+    gradient: 'from-indigo-600/40 to-violet-900/60',
+    tags: ['Premium', 'External'],
+    features: ['Unique Gameplay', 'Water Themed', 'Score Tracking', 'Community Play'],
+    mediumCard: true,
+    newBadge: true,
+  },
+
+  // ── STANDARD REACT GAMES ─────────────────────────────────────────────────
 
   {
     id: 'trivia',
@@ -156,71 +229,6 @@ export const GAME_REGISTRY = [
     tags: ['Scenarios', 'Decision-Making', 'Real-World'],
     features: ['5 Real Scenarios', 'Branching Outcomes', 'Eco-Score System', 'Expert Explanations'],
   },
-
-
-  // ── IFRAME / GAME ENGINE EXAMPLES ─────────────────────────────────────────
-  // Uncomment and configure these when you export your engine games.
-  //
-  // EXAMPLE 1 — Unity WebGL game:
-  // {
-  //   id: 'aqua-runner',
-  //   name: 'AquaRunner',
-  //   tagline: 'Run and collect clean water!',
-  //   description: 'A 3D platformer where you collect water droplets while avoiding pollution. Built in Unity.',
-  //   type: 'iframe',
-  //   iframeSrc: '/games/aqua-runner/index.html',   // place files in public/games/aqua-runner/
-  //   engine: 'unity',
-  //   emoji: '🏃',
-  //   icon: Gamepad2,
-  //   cost: 150,
-  //   difficulty: 'Medium',
-  //   accentColor: '#8b5cf6',
-  //   gradient: 'from-violet-700/40 to-purple-900/60',
-  //   tags: ['3D', 'Platformer', 'Action'],
-  //   features: ['Full 3D World', '10 Levels', 'Score System', 'Built with Unity'],
-  //   engineBadge: true,
-  //   newBadge: true,
-  //   // scoreMessageKey: 'AQUAWATCH_SCORE',  // postMessage key your Unity game emits
-  // },
-  //
-  // EXAMPLE 2 — Godot HTML5 game:
-  // {
-  //   id: 'water-hero',
-  //   name: 'Water Hero',
-  //   tagline: 'Fix the broken water system!',
-  //   description: 'A top-down adventure game built with Godot. Fix pipes and clean up pollution to save the city.',
-  //   type: 'iframe',
-  //   iframeSrc: '/games/water-hero/index.html',    // place files in public/games/water-hero/
-  //   engine: 'godot',
-  //   emoji: '⚔️',
-  //   icon: Gamepad2,
-  //   cost: 200,
-  //   difficulty: 'Expert',
-  //   accentColor: '#ec4899',
-  //   gradient: 'from-pink-700/40 to-rose-900/60',
-  //   tags: ['Adventure', 'Top-Down', 'Story'],
-  //   features: ['Story Campaign', 'Boss Fights', 'Water Lore', 'Built with Godot'],
-  //   engineBadge: true,
-  // },
-  //
-  // EXAMPLE 3 — Coming Soon placeholder:
-  // {
-  //   id: 'ocean-cleanup',
-  //   name: 'Ocean Cleanup',
-  //   tagline: 'Coming soon!',
-  //   description: 'A massive multiplayer ocean cleanup simulation. Coming in the next update!',
-  //   type: 'iframe',
-  //   iframeSrc: '',
-  //   emoji: '🌊',
-  //   icon: Gamepad2,
-  //   cost: 0,
-  //   difficulty: 'Medium',
-  //   accentColor: '#06b6d4',
-  //   gradient: 'from-cyan-700/40 to-sky-900/60',
-  //   tags: ['Multiplayer', 'Coming Soon'],
-  //   features: ['Multiplayer', 'Real-Time', 'Ocean Theme', 'Leaderboards'],
-  //   comingSoon: true,
-  // },
 
 ]
 

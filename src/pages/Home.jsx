@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Droplets, Map, Star, Shield, ArrowRight, ChevronDown, Waves, AlertTriangle, TrendingUp, Gamepad2, Brain, Puzzle, Trophy, Zap, Heart, Users, Globe } from 'lucide-react'
+import { Droplets, Map, Star, Shield, ArrowRight, ChevronDown, Waves, AlertTriangle, TrendingUp, Gamepad2, Brain, Puzzle, Trophy, Zap, Heart, Users, Globe, Crown, ExternalLink, Sparkles } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 import Footer from '../components/Footer'
 
@@ -52,12 +52,95 @@ const HowStep = ({ number, title, description }) => (
   </div>
 )
 
+// ── Mini preview card for the homepage game section ──────────────────────
+// type: 'featured' | 'medium' | 'standard'
+function HomeGamePreviewCard({ emoji, name, label, desc, type = 'standard', accentColor, coverImage, externalUrl }) {
+  const isCover = (type === 'featured' || type === 'medium') && coverImage
+
+  if (isCover) {
+    return (
+      <div className={`relative overflow-hidden rounded-xl glass border border-white/10 group hover:border-white/20 transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
+        type === 'featured' ? 'sm:col-span-2 min-h-[130px]' : 'min-h-[100px]'
+      }`}
+        onClick={() => externalUrl && window.open(externalUrl, '_blank', 'noopener,noreferrer')}
+      >
+        {/* Cover image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+          style={{ backgroundImage: `url(${coverImage})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+
+        {/* Badges */}
+        <div className="absolute top-2 left-2 flex gap-1.5 z-10">
+          {type === 'featured' && (
+            <span className="flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold"
+              style={{ background: `${accentColor || '#f59e0b'}30`, border: `1px solid ${accentColor || '#f59e0b'}60`, color: accentColor || '#f59e0b' }}>
+              <Crown size={8} />FEATURED
+            </span>
+          )}
+          {type === 'medium' && (
+            <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-indigo-500/30 border border-indigo-400/50 text-indigo-300 text-[10px] font-bold">
+              <Sparkles size={8} />PREMIUM
+            </span>
+          )}
+          <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium border ${
+            label === 'Free'
+              ? 'bg-teal-500/20 text-teal-300 border border-teal-500/30'
+              : 'bg-yellow-500/15 text-yellow-300 border border-yellow-500/25'}`}>
+            {label}
+          </span>
+        </div>
+
+        {/* Content */}
+        <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
+          <div className="flex items-end justify-between gap-2">
+            <div className="min-w-0">
+              <span className="text-white font-semibold text-xs sm:text-sm block truncate drop-shadow">{name}</span>
+              <p className="text-white/45 text-[10px] truncate hidden sm:block">{desc}</p>
+            </div>
+            <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+              <div className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[10px] font-bold"
+                style={{
+                  background: `linear-gradient(135deg, ${accentColor || '#f59e0b'}, ${accentColor || '#f59e0b'}bb)`,
+                  color: '#000',
+                }}>
+                <ExternalLink size={9} />Play
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // Standard preview row
+  return (
+    <div className="flex items-center gap-3 glass rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 group hover:bg-white/10 transition-colors">
+      <span className="text-base sm:text-xl flex-shrink-0">{emoji}</span>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2">
+          <span className="text-white font-medium text-xs sm:text-sm">{name}</span>
+          <span className={`badge text-[10px] ${label === 'Free'
+            ? 'bg-teal-500/20 text-teal-300 border border-teal-500/30'
+            : 'bg-yellow-500/15 text-yellow-300 border border-yellow-500/25'}`}>
+            {label}
+          </span>
+        </div>
+        <p className="text-white/40 text-xs truncate">{desc}</p>
+      </div>
+      <ChevronDown size={13} className="text-white/20 -rotate-90 flex-shrink-0" />
+    </div>
+  )
+}
+
 export default function Home() {
   const { user } = useAuth()
 
   return (
     <div className="min-h-screen">
 
+      {/* ── Hero ── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-20 pb-16">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-ocean-950 via-ocean-900 to-ocean-800" />
@@ -124,6 +207,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Stats ── */}
       <section className="py-12 sm:py-20 bg-ocean-900/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
@@ -135,6 +219,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Features ── */}
       <section className="py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10 sm:mb-16">
@@ -150,6 +235,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── How to get started ── */}
       <section className="py-16 sm:py-20 bg-ocean-900/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 items-center">
@@ -193,6 +279,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Volunteer section ── */}
       <section className="py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10">
@@ -280,6 +367,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Game Hub preview ── */}
       <section className="py-16 sm:py-24 bg-ocean-900/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center">
@@ -298,33 +386,56 @@ export default function Home() {
               </h2>
               <p className="text-white/60 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 MOYA isn't just about reporting — it's about understanding water.
-                Our Game Hub features six hand-crafted educational games covering water
+                Our Game Hub features hand-crafted educational games covering water
                 science, infrastructure, purification, and real-world crisis management.
               </p>
 
+              {/*
+                ── GAME PREVIEW LIST ──────────────────────────────────────────
+                The first 2 entries below are YOUR custom games (featured + medium).
+                They always show at the top. The remaining 2 are standard games.
+                To update: replace the name, label, desc, accentColor, coverImage,
+                and externalUrl for the featured/medium games.
+              */}
               <div className="flex flex-col gap-2 sm:gap-3 mb-6 sm:mb-8">
-                {[
-                  { emoji: '🧠', name: 'Water Trivia',    label: 'Free',    desc: 'Timed quiz on water science & global issues' },
-                  { emoji: '🔧', name: 'Pipeline Puzzle', label: '50 pts',  desc: 'Rotate pipes to route water infrastructure' },
-                  { emoji: '🌊', name: 'Flood Defense',   label: '120 pts', desc: 'Real-time strategy: protect homes from floods' },
-                  { emoji: '🌍', name: 'Eco Decisions',   label: '100 pts', desc: 'Make real-world water management choices' },
-                ].map(({ emoji, name, label, desc }) => (
-                  <div key={name} className="flex items-center gap-3 glass rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 group hover:bg-white/10 transition-colors">
-                    <span className="text-base sm:text-xl flex-shrink-0">{emoji}</span>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="text-white font-medium text-xs sm:text-sm">{name}</span>
-                        <span className={`badge text-[10px] ${label === 'Free'
-                          ? 'bg-teal-500/20 text-teal-300 border border-teal-500/30'
-                          : 'bg-yellow-500/15 text-yellow-300 border border-yellow-500/25'}`}>
-                          {label}
-                        </span>
-                      </div>
-                      <p className="text-white/40 text-xs truncate">{desc}</p>
-                    </div>
-                    <ChevronDown size={13} className="text-white/20 -rotate-90 flex-shrink-0" />
-                  </div>
-                ))}
+
+                {/* ── YOUR FEATURED GAME (always first, big cover card) ── */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                  <HomeGamePreviewCard
+                    type="featured"
+                    name="Sunset Valley"          // ← replace
+                    label="500 pts"
+                    desc="Your featured game description"   // ← replace
+                    accentColor="#1E93B3"                   // ← match your game's accent
+                    coverImage="https://i.ibb.co/XxW9K3DM/sunset-valley.jpg"  // ← replace
+                    externalUrl="https://daniel-geo.itch.io/water-quest" // ← replace
+                  />
+
+                  {/* ── YOUR MEDIUM GAME (second, right column) ── */}
+                  <HomeGamePreviewCard
+                    type="medium"
+                    name="Water Dispatch"            // ← replace
+                    label="250 pts"
+                    desc="Help the water management team solve real-world water challenges through strategic decision-making and problem-solving!"     // ← replace
+                    accentColor="#6366f1"                   // ← match your game's accent
+                    coverImage="https://i.ibb.co/sv5GmzRT/water-dispatch.jpg"    // ← replace
+                    externalUrl="https://le-sinister.itch.io/water-patch" // ← replace
+                  />
+                </div>
+
+                {/* ── Standard game rows — keep 2 here to balance the layout ── */}
+                <HomeGamePreviewCard
+                  emoji="🔧"
+                  name="Pipeline Puzzle"
+                  label="10 pts"
+                  desc="Rotate pipes to route water infrastructure"
+                />
+                <HomeGamePreviewCard
+                  emoji="🌊"
+                  name="Flood Defense"
+                  label="20 pts"
+                  desc="Real-time strategy: protect homes from floods"
+                />
               </div>
 
               <div className="flex flex-col xs:flex-row gap-3">
@@ -338,6 +449,8 @@ export default function Home() {
                 </Link>
               </div>
             </div>
+
+            {/* ── Right side: animated mock game cards ── */}
             <div className="relative h-80 sm:h-96 hidden lg:block">
               <div className="absolute inset-0 bg-violet-500/5 rounded-3xl blur-3xl" />
 
@@ -403,6 +516,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── CTA ── */}
       <section className="py-16 sm:py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <div className="card p-8 sm:p-12 relative overflow-hidden">
