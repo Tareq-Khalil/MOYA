@@ -87,7 +87,7 @@ export const GAME_REGISTRY = [
     id: 'featured-game',
     name: 'Sunset Valley',                  // ← replace
     tagline: 'A Stardew Valley Adventure',            // ← replace (one short line)
-    description: 'YOUR_FEATURED_GAME_DESCRIPTION',   // ← replace
+    description: '',   // ← replace
     type: 'external',
     externalUrl: 'https://daniel-geo.itch.io/water-quest', // ← replace
     coverImage: 'https://i.ibb.co/XxW9K3DM/sunset-valley.jpg',   // ← replace (put image in /public/images/games/)
