@@ -87,7 +87,7 @@ export const GAME_REGISTRY = [
     id: 'featured-game',
     name: 'Water Quest',                  // ← replace
     tagline: 'A Stardew Valley Adventure',            // ← replace (one short line)
-    description: '',   // ← replace
+    description: 'In a world where no one cares about their water consumption, your goal is to decrease your water consumption as much as you can. "Save water today to secure tomorrow."',   // ← replace
     type: 'external',
     externalUrl: 'https://daniel-geo.itch.io/water-quest', // ← replace
     coverImage: 'https://i.ibb.co/XxW9K3DM/sunset-valley.jpg',   // ← replace (put image in /public/images/games/)
