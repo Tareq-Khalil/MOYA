@@ -35,24 +35,7 @@ const team = [
     phone: '+201151113454',
     socials: { twitter: '', github: '', linkedin: '' }
   },
-  {
-    name: 'Kevin Martin',
-    role: 'CMO',
-    roleLabel: 'Chief Marketing Officer',
-    jobDesc: 'Manages branding, digital campaigns, content strategy, partnerships, and user acquisition.',
-    bio: '',
-    quote: '',
-    avatar: 'KM',
-    photo: 'https://i.ibb.co/FLXk4b4M/Kevin-Martin.jpg',
-    color: 'from-sky-600 to-teal-600',
-    accent: '#38bdf8',
-    favLang: 'HTML, CSS',
-    extra: { label: '', value: '' },
-    email: 'Kevinmartinmicheal@gmail.com',
-    phone: '+201129835557',
-    socials: { twitter: '', github: '', linkedin: 'https://www.linkedin.com/in/kevin-martin-995b7b32a' }
-  },
-  {
+{
     name: 'Daniel George',
     role: 'Game Developer',
     roleLabel: 'Game Developer',
@@ -69,23 +52,22 @@ const team = [
     phone: '+201227298840',
     socials: { youtube: 'https://www.youtube.com/@Daniel-Geo123', github: 'https://github.com/daniel-geo', itchio: 'https://daniel-geo.itch.io' }
   },
-  {
-    name: 'Asser ElSergany',
-    role: 'GD',
-    roleLabel: 'Graphic Designer',
-    jobDesc: 'Designs all visual content, branding materials, and marketing graphics.',
-    bio: 'Graphic Designer & Music Enthusiast',
-    quote: 'There are no two words in the English language more harmful than "good job".',
-    avatar: 'AS',
-    photo: 'https://i.ibb.co/S49XXB20/Asser-El-Sergany.png',
-    color: 'from-teal-600 to-sky-600',
-    accent: '#5eead4',
-    favLang: 'C++, HTML, CSS, JS.',
-    extra: { label: '', value: '' },
-    email: 'asserelsergany@gmail.com',
-    phone: '+201007974552',
-    socials: { twitter: 'https://x.com/AsSergany', github: 'https://github.com/AsserElSergany', linkedin: 'https://www.linkedin.com/in/asser-elsergany-917626351' }
-  },
+{
+    name: 'Loay Sherif',
+    role: 'CFO',
+    roleLabel: 'Chief Financial Officer',
+    jobDesc: 'Oversees budgeting, financial planning, accounting, and investor reporting.',
+    bio: '',
+    quote: '"Just because you see a smile, don’t think you know what’s going on underneath.  A smile is a valuable tool, my dear. It inspires your friends, keeps your enemies guessing, and ensures that no matter what comes your way, you’re the one in control."',
+    avatar: 'LS',
+    photo: 'https://i.ibb.co/Kc7ktSGp/loay-sherif.png',
+    color: 'from-sky-500 to-teal-500',
+    accent: '#14b8a6',
+    favLang: "HTML, Python, C#, C++, CSS",
+    email: 'loayalaa77@gmail.com',
+    phone: '+201554409916',
+    socials: { twitter: '', github: 'https://github.com/SinisterClown86', linkedin: '' }
+  }, 
 {
     name: 'Amro Ibrahim',
     role: 'CIO',
@@ -104,6 +86,42 @@ const team = [
     socials: { twitter: '', github: 'https://github.com/Amro7X', linkedin: 'https://eg.linkedin.com/in/amro-ibrahim-228105362' }
   }, 
   {
+    name: 'Kevin Martin',
+    role: 'CMO',
+    roleLabel: 'Chief Marketing Officer',
+    jobDesc: 'Manages branding, digital campaigns, content strategy, partnerships, and user acquisition.',
+    bio: '',
+    quote: '',
+    avatar: 'KM',
+    photo: 'https://i.ibb.co/FLXk4b4M/Kevin-Martin.jpg',
+    color: 'from-sky-600 to-teal-600',
+    accent: '#38bdf8',
+    favLang: 'HTML, CSS',
+    extra: { label: '', value: '' },
+    email: 'Kevinmartinmicheal@gmail.com',
+    phone: '+201129835557',
+    socials: { twitter: '', github: '', linkedin: 'https://www.linkedin.com/in/kevin-martin-995b7b32a' }
+  },
+  
+  {
+    name: 'Asser ElSergany',
+    role: 'GD',
+    roleLabel: 'Graphic Designer',
+    jobDesc: 'Designs all visual content, branding materials, and marketing graphics.',
+    bio: 'Graphic Designer & Music Enthusiast',
+    quote: 'There are no two words in the English language more harmful than "good job".',
+    avatar: 'AS',
+    photo: 'https://i.ibb.co/S49XXB20/Asser-El-Sergany.png',
+    color: 'from-teal-600 to-sky-600',
+    accent: '#5eead4',
+    favLang: 'C++, HTML, CSS, JS.',
+    extra: { label: '', value: '' },
+    email: 'asserelsergany@gmail.com',
+    phone: '+201007974552',
+    socials: { twitter: 'https://x.com/AsSergany', github: 'https://github.com/AsserElSergany', linkedin: 'https://www.linkedin.com/in/asser-elsergany-917626351' }
+  },
+
+  {
     name: 'Yossef Ahmed',
     role: 'CCO',
     roleLabel: 'Chief Communications Officer',
@@ -119,23 +137,8 @@ const team = [
     email: '1024060.yossef@stemegypt.edu.eg',
     phone: '+201147107619',
     socials: { twitter: '', github: 'https://github.com/YossefAlex', linkedin: 'https://www.linkedin.com/in/yossef-ahmed-20ba89368/' }
-  },
-{
-    name: 'Loay Sherif',
-    role: 'CFO',
-    roleLabel: 'Chief Financial Officer',
-    jobDesc: 'Oversees budgeting, financial planning, accounting, and investor reporting.',
-    bio: '',
-    quote: '"Just because you see a smile, don’t think you know what’s going on underneath.  A smile is a valuable tool, my dear. It inspires your friends, keeps your enemies guessing, and ensures that no matter what comes your way, you’re the one in control."',
-    avatar: 'LS',
-    photo: 'https://i.ibb.co/Kc7ktSGp/loay-sherif.png',
-    color: 'from-sky-500 to-teal-500',
-    accent: '#14b8a6',
-    favLang: "HTML, Python, C#, C++, CSS",
-    email: 'loayalaa77@gmail.com',
-    phone: '+201554409916',
-    socials: { twitter: '', github: 'https://github.com/SinisterClown86', linkedin: '' }
   }
+
 ]
 
 const supervisor = {
