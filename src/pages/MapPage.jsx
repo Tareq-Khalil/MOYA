@@ -8,10 +8,8 @@ import {
   Loader, AlertTriangle, Droplets, Locate, Video, CheckCircle2, Send
 } from 'lucide-react'
 
-// ─── Navbar height — matches your Navbar's fixed height (logo h-20 + padding) ──
-const NAVBAR_H = 80
+const NAVBAR_H = 60
 
-// Fix leaflet default icon
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
