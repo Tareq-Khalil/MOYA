@@ -8,7 +8,7 @@ import {
   Loader, AlertTriangle, Droplets, Locate, Video, CheckCircle2, Send
 } from 'lucide-react'
 
-const NAVBAR_H = 60
+const NAVBAR_H = 80
 
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
