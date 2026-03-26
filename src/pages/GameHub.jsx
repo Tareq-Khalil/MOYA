@@ -17,7 +17,6 @@ const DIFFICULTY_COLORS = {
   Expert: 'text-purple-300 bg-purple-500/15 border-purple-500/30',
 }
 
-// ── Featured Hero Card (large, cover image, hover reveal play button) ──────
 function FeaturedGameCard({ game, unlocked, userPoints, onUnlock }) {
   const canAfford = userPoints >= game.cost
 
@@ -42,13 +41,10 @@ function FeaturedGameCard({ game, unlocked, userPoints, onUnlock }) {
         }}
       />
 
-      {/* Fallback gradient when no image loads */}
       <div className={`absolute inset-0 bg-gradient-to-br ${game.gradient} opacity-80`} />
 
-      {/* Dark overlay — lightens on hover to reveal more of image */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 transition-opacity duration-500 group-hover:opacity-80" />
 
-      {/* Animated shimmer border on hover */}
       <div
         className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
@@ -56,7 +52,6 @@ function FeaturedGameCard({ game, unlocked, userPoints, onUnlock }) {
         }}
       />
 
-      {/* Top badges */}
       <div className="absolute top-4 left-4 z-10 flex gap-2 flex-wrap">
         <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold tracking-wider"
           style={{ background: `${game.accentColor}30`, border: `1px solid ${game.accentColor}60`, color: game.accentColor }}>
@@ -77,7 +72,6 @@ function FeaturedGameCard({ game, unlocked, userPoints, onUnlock }) {
         }
       </div>
 
-      {/* Bottom content */}
       <div className="absolute bottom-0 left-0 right-0 z-10 p-6 sm:p-8">
         <div className="flex items-end justify-between gap-4">
           <div className="flex-1 min-w-0">
@@ -96,7 +90,6 @@ function FeaturedGameCard({ game, unlocked, userPoints, onUnlock }) {
             <p className="text-white/55 text-sm leading-relaxed max-w-lg hidden sm:block line-clamp-2">{game.description}</p>
           </div>
 
-          {/* Play / Unlock button — slides up on hover */}
           <div className="flex-shrink-0 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400 ease-out">
             {unlocked ? (
               <button
@@ -130,7 +123,6 @@ function FeaturedGameCard({ game, unlocked, userPoints, onUnlock }) {
         </div>
       </div>
 
-      {/* Lock overlay when can't afford */}
       {!unlocked && !canAfford && (
         <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
           <div className="w-16 h-16 rounded-2xl bg-black/50 backdrop-blur-sm flex items-center justify-center border border-white/10">
@@ -142,7 +134,6 @@ function FeaturedGameCard({ game, unlocked, userPoints, onUnlock }) {
   )
 }
 
-// ── Medium External Game Card ─────────────────────────────────────────────
 function MediumGameCard({ game, unlocked, userPoints, onUnlock }) {
   const canAfford = userPoints >= game.cost
 
@@ -158,7 +149,6 @@ function MediumGameCard({ game, unlocked, userPoints, onUnlock }) {
       style={{ minHeight: '260px' }}
       onClick={unlocked ? handlePlay : undefined}
     >
-      {/* Cover image */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
         style={{ backgroundImage: `url(${game.coverImage})` }}
@@ -166,13 +156,11 @@ function MediumGameCard({ game, unlocked, userPoints, onUnlock }) {
       <div className={`absolute inset-0 bg-gradient-to-br ${game.gradient} opacity-75`} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 transition-opacity duration-500 group-hover:opacity-75" />
 
-      {/* Hover border glow */}
       <div
         className="absolute inset-0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{ boxShadow: `0 0 0 2px ${game.accentColor}50, 0 0 40px ${game.accentColor}15` }}
       />
 
-      {/* Top badges */}
       <div className="absolute top-3 left-3 z-10 flex gap-2">
         {game.newBadge && (
           <span className="px-2.5 py-1 rounded-full bg-orange-500/30 text-orange-300 border border-orange-500/40 text-[10px] font-bold tracking-wider">NEW</span>
@@ -187,7 +175,6 @@ function MediumGameCard({ game, unlocked, userPoints, onUnlock }) {
         }
       </div>
 
-      {/* Bottom content */}
       <div className="absolute bottom-0 left-0 right-0 z-10 p-4 sm:p-5">
         <div className="flex items-end justify-between gap-3">
           <div className="flex-1 min-w-0">
@@ -198,7 +185,6 @@ function MediumGameCard({ game, unlocked, userPoints, onUnlock }) {
             <p style={{ color: game.accentColor }} className="text-xs font-medium opacity-90">{game.tagline}</p>
           </div>
 
-          {/* Play button — slides in on hover */}
           <div className="flex-shrink-0 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-350 ease-out">
             {unlocked ? (
               <button
@@ -243,7 +229,6 @@ function MediumGameCard({ game, unlocked, userPoints, onUnlock }) {
   )
 }
 
-// ── Standard Game Card ────────────────────────────────────────────────────
 function GameCard({ game, unlocked, userPoints, onPlay, onUnlock }) {
   const Icon = game.icon || Gamepad2
   const canAfford = userPoints >= game.cost
@@ -460,7 +445,6 @@ export default function GameHub() {
 
   const userPoints = profile?.points ?? 0
 
-  // Separate game types
   const featuredGame = GAME_REGISTRY.find(g => g.featured)
   const mediumGame   = GAME_REGISTRY.find(g => g.mediumCard)
   const standardGames = GAME_REGISTRY.filter(g => !g.featured && !g.mediumCard)
@@ -523,7 +507,6 @@ export default function GameHub() {
   return (
     <div className="min-h-screen pb-16">
 
-      {/* ── Hero banner ── */}
       <div className="relative overflow-hidden pt-20 sm:pt-24 pb-10 sm:pb-14">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-b from-ocean-950 via-ocean-900/80 to-transparent" />
@@ -571,7 +554,6 @@ export default function GameHub() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-        {/* ── AquaPoints wallet / guest banner ── */}
         {user ? (
           <div className="glass rounded-2xl p-4 mb-6 sm:mb-8">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -623,7 +605,6 @@ export default function GameHub() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_270px] gap-6 sm:gap-8">
           <div>
 
-            {/* ── Featured Hero Card ── */}
             {featuredGame && (
               <div className="mb-5 sm:mb-6">
                 <div className="flex items-center gap-2 mb-3">
@@ -639,7 +620,6 @@ export default function GameHub() {
               </div>
             )}
 
-            {/* ── Medium Game Card ── */}
             {mediumGame && (
               <div className="mb-5 sm:mb-6">
                 <div className="flex items-center gap-2 mb-3">
@@ -655,7 +635,6 @@ export default function GameHub() {
               </div>
             )}
 
-            {/* ── Filter tabs ── */}
             <div className="flex gap-2 mb-5 sm:mb-6 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide">
               {[['all','All Games'],['free','Free'],['premium','Premium'],['engine','🎮 Engine']].map(([key, label]) => (
                 <button key={key} onClick={() => setFilter(key)}
@@ -672,7 +651,6 @@ export default function GameHub() {
               ))}
             </div>
 
-            {/* ── Standard game grid ── */}
             {filtered.length === 0 ? (
               <div className="card text-center py-12 sm:py-16">
                 <Gamepad2 size={36} className="text-white/15 mx-auto mb-3" />
@@ -698,7 +676,6 @@ export default function GameHub() {
             )}
           </div>
 
-          {/* ── Sidebar ── */}
           <div>
             <button
               onClick={() => setShowSidebar(s => !s)}

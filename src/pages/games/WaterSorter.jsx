@@ -26,7 +26,6 @@ function generatePuzzle(numColors) {
   for (let i = 0; i < numColors; i++) {
     tubes.push(layers.slice(i * TUBE_CAPACITY, (i + 1) * TUBE_CAPACITY))
   }
-  // Add empty tubes
   tubes.push([])
   if (numColors > 3) tubes.push([])
   return tubes
@@ -45,7 +44,6 @@ function Tube({ layers, isSelected, isSolved, onClick }) {
       }`}
       style={{ background: 'rgba(0,0,0,0.3)' }}
     >
-      {/* Water layers from bottom */}
       {[...Array(TUBE_CAPACITY)].map((_, i) => {
         const colorName = layers[i]
         const color = colorMap[colorName]
@@ -56,14 +54,12 @@ function Tube({ layers, isSelected, isSolved, onClick }) {
         )
       })}
 
-      {/* Selected indicator */}
       {isSelected && layers.length > 0 && (
         <div className={`absolute -top-3 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full animate-bounce ${
           colorMap[layers[layers.length - 1]]?.bg || 'bg-white'
         }`} />
       )}
 
-      {/* Solved checkmark */}
       {isSolved && (
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-8 h-8 rounded-full bg-teal-500/30 border border-teal-400/50 flex items-center justify-center">
@@ -138,7 +134,6 @@ export default function WaterSorter({ onExit, onScoreEarned }) {
     } else if (selected === idx) {
       setSelected(null)
     } else {
-      // Try to pour
       if (canPour(tubes[selected], tubes[idx])) {
         const newTubes = tubes.map(t => [...t])
         const topColor = getTopColor(newTubes[selected])
@@ -224,7 +219,6 @@ export default function WaterSorter({ onExit, onScoreEarned }) {
         </div>
       )}
 
-      {/* Tubes */}
       <div className="flex items-end justify-center gap-3 py-8 px-4">
         {tubes.map((tube, i) => (
           <Tube

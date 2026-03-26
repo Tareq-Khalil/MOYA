@@ -33,7 +33,6 @@ export default function Navbar() {
             className="h-20 w-auto object-contain transition-opacity group-hover:opacity-80"
           />
         </Link>
-        {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8 text-lg">
           <Link to="/" className={`nav-link ${isActive('/') ? 'text-white' : ''}`}>Home</Link>
           <Link to="/meet-us" className={`nav-link ${isActive('/meet-us') ? 'text-white' : ''}`}>Meet Us</Link>
@@ -93,12 +92,10 @@ export default function Navbar() {
             </>
           )}
         </div>
-        {/* Mobile Menu Button */}
         <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden glass p-2 rounded-xl">
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
-      {/* Mobile Dropdown */}
       {menuOpen && (
         <div className="md:hidden glass mt-2 mx-4 rounded-2xl p-4 flex flex-col gap-2">
           {[
@@ -119,7 +116,6 @@ export default function Navbar() {
               Admin Panel
             </Link>
           )}
-          {/* Donate row in mobile */}
           <Link
             to="/donate"
             onClick={() => setMenuOpen(false)}

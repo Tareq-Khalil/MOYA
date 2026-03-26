@@ -142,7 +142,6 @@ export default function EcoDecisions({ onExit, onScoreEarned }) {
 
   return (
     <div className="flex flex-col gap-5 max-w-xl mx-auto">
-      {/* Progress */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Target size={16} className="text-ocean-300" />
@@ -158,7 +157,6 @@ export default function EcoDecisions({ onExit, onScoreEarned }) {
           style={{ width: `${((current) / scenarios.length) * 100}%` }} />
       </div>
 
-      {/* Scenario */}
       <div className="glass rounded-2xl p-6">
         <div className="flex items-start gap-3">
           <div className="w-10 h-10 rounded-xl bg-ocean-500/25 flex items-center justify-center flex-shrink-0">
@@ -171,7 +169,6 @@ export default function EcoDecisions({ onExit, onScoreEarned }) {
         </div>
       </div>
 
-      {/* Choices */}
       <div className="flex flex-col gap-3">
         {s.choices.map((choice, i) => {
           let style = 'glass border border-white/10 text-white hover:bg-white/10 hover:border-ocean-400/40 cursor-pointer text-left'
@@ -194,7 +191,6 @@ export default function EcoDecisions({ onExit, onScoreEarned }) {
         })}
       </div>
 
-      {/* Result reveal */}
       {selected !== null && (
         <div className={`rounded-2xl p-4 border text-sm leading-relaxed animate-slide-up ${
           s.choices[selected].correct

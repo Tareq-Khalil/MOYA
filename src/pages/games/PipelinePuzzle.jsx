@@ -1,8 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
 import { RotateCcw, Trophy, ArrowLeft, Zap, ChevronRight, Droplets } from 'lucide-react'
 
-// Pipe types and their connections
-// Each pipe has connections array indicating which sides connect: [top, right, bottom, left]
 const PIPE_TYPES = {
   straight_h: { connections: [0,1,0,1], symbol: '━', rotate: 0 },
   straight_v: { connections: [1,0,1,0], symbol: '┃', rotate: 0 },
@@ -79,13 +77,11 @@ function PipeCell({ type, rotations, flowing, isSource, isSink, onClick }) {
   )
 }
 
-// Check which cells are connected to the source
 function traceFlow(grid, rotations, source, size) {
   const getConnections = (type, rots) => {
     if (!type) return [0,0,0,0]
     const base = PIPE_TYPES[type]?.connections || [0,0,0,0]
     const r = ((rots || 0) % 4 + 4) % 4
-    // Rotate connections array
     let conn = [...base]
     for (let i = 0; i < r; i++) {
       conn = [conn[3], conn[0], conn[1], conn[2]] // rotate left
@@ -102,7 +98,6 @@ function traceFlow(grid, rotations, source, size) {
     const key = `${row},${col}`
     const type = grid[row]?.[col]
     const conn = getConnections(type, rotations[key])
-    // top=0, right=1, bottom=2, left=3
     const dirs = [[-1,0,2],[0,1,3],[1,0,0],[0,-1,1]]
     dirs.forEach(([dr,dc,neighborSide], side) => {
       if (!conn[side]) return
@@ -141,7 +136,6 @@ export default function PipelinePuzzle({ onExit, onScoreEarned }) {
   }, [])
 
   const resetLevel = useCallback(() => {
-    // Shuffle non-source/sink pipes
     const newRots = {}
     level.grid.forEach((row, r) => {
       row.forEach((cell, c) => {
@@ -224,14 +218,12 @@ export default function PipelinePuzzle({ onExit, onScoreEarned }) {
         </div>
       </div>
 
-      {/* Legend */}
       <div className="flex gap-4 text-xs text-white/50">
         <div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded-sm bg-teal-500/50 border border-teal-400/50" />Source</div>
         <div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded-sm bg-yellow-500/50 border border-yellow-400/50" />Drain</div>
         <div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded-sm bg-ocean-500/50 border border-ocean-400/50" />Flowing</div>
       </div>
 
-      {/* Grid */}
       <div className="glass rounded-2xl p-4">
         <div className="grid gap-1.5" style={{ gridTemplateColumns: `repeat(${level.size}, 1fr)` }}>
           {level.grid.map((row, r) =>

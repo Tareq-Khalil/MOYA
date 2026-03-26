@@ -66,7 +66,6 @@ export default function AICompanion() {
 
   return (
     <>
-      {/* Toggle Button */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
@@ -77,7 +76,6 @@ export default function AICompanion() {
         </button>
       )}
 
-      {/* Chat Window */}
       {isOpen && (
         <div className={`fixed bottom-6 right-6 z-50 transition-all duration-300 ${isMinimized ? 'w-72' : 'w-80 sm:w-96'}`}>
           <div className="glass-light rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/20">
@@ -107,7 +105,6 @@ export default function AICompanion() {
 
             {!isMinimized && (
               <>
-                {/* Messages */}
                 <div className="h-72 overflow-y-auto p-4 flex flex-col gap-3">
                   {messages.map((msg, i) => (
                     <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -134,7 +131,6 @@ export default function AICompanion() {
                   <div ref={messagesEndRef} />
                 </div>
 
-                {/* Input */}
                 <div className="p-3 border-t border-white/10">
                   <div className="flex gap-2">
                     <input

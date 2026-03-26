@@ -141,7 +141,6 @@ export default function WaterTrivia({ onExit, onScoreEarned }) {
 
   return (
     <div className="flex flex-col gap-5 max-w-2xl mx-auto">
-      {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="glass px-3 py-1.5 rounded-full text-sm font-mono font-bold text-yellow-300">
@@ -159,13 +158,11 @@ export default function WaterTrivia({ onExit, onScoreEarned }) {
         </div>
       </div>
 
-      {/* Progress bar */}
       <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
         <div className="h-full bg-gradient-to-r from-ocean-400 to-teal-400 rounded-full transition-all duration-500"
           style={{ width: `${progress}%` }} />
       </div>
 
-      {/* Timer */}
       <div className="flex items-center gap-3">
         <div className="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
           <div className={`h-full rounded-full transition-all duration-1000 ${
@@ -177,7 +174,6 @@ export default function WaterTrivia({ onExit, onScoreEarned }) {
         }`}>{timeLeft}</span>
       </div>
 
-      {/* Question */}
       <div className="glass rounded-2xl p-6">
         <div className="flex items-start gap-3">
           <div className="w-8 h-8 rounded-xl bg-ocean-500/30 flex items-center justify-center flex-shrink-0">
@@ -187,7 +183,6 @@ export default function WaterTrivia({ onExit, onScoreEarned }) {
         </div>
       </div>
 
-      {/* Options */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {q.options.map((opt, i) => {
           let style = 'glass border-white/10 text-white hover:bg-white/10 hover:border-ocean-400/40 cursor-pointer'
@@ -210,7 +205,6 @@ export default function WaterTrivia({ onExit, onScoreEarned }) {
         })}
       </div>
 
-      {/* Fact reveal */}
       {showFact && (
         <div className={`rounded-2xl p-4 border text-sm leading-relaxed animate-slide-up ${
           selected === q.answer

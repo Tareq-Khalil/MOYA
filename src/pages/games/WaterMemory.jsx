@@ -135,7 +135,6 @@ export default function WaterMemory({ onExit, onScoreEarned, userPoints, onSpend
 
   return (
     <div className="flex flex-col items-center gap-4 max-w-xl mx-auto">
-      {/* Header */}
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-3">
           <button onClick={() => setShowSetPicker(!showSetPicker)}
@@ -152,7 +151,6 @@ export default function WaterMemory({ onExit, onScoreEarned, userPoints, onSpend
         </div>
       </div>
 
-      {/* Set picker */}
       {showSetPicker && (
         <div className="w-full glass-light rounded-2xl p-3 flex flex-col gap-2 border border-white/10">
           {Object.entries(CARD_SETS).map(([key, set]) => {
@@ -188,13 +186,11 @@ export default function WaterMemory({ onExit, onScoreEarned, userPoints, onSpend
         </div>
       )}
 
-      {/* Progress */}
       <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
         <div className="h-full bg-gradient-to-r from-ocean-400 to-teal-400 rounded-full transition-all duration-500"
           style={{ width: `${progress * 100}%` }} />
       </div>
 
-      {/* Card grid */}
       <div className="grid grid-cols-4 gap-2 sm:gap-3">
         {deck.map((card, i) => {
           const isFlipped = flipped.includes(i)
@@ -218,7 +214,6 @@ export default function WaterMemory({ onExit, onScoreEarned, userPoints, onSpend
         })}
       </div>
 
-      {/* Game Over */}
       {gameOver && (
         <div className="w-full animate-slide-up">
           <div className="bg-teal-500/10 border border-teal-500/30 rounded-2xl p-5 flex flex-col items-center gap-3 text-center">

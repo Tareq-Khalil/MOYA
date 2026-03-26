@@ -6,10 +6,8 @@ export default function Footer() {
     <footer className="border-t border-white/10 bg-ocean-950/60 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-6 py-12">
 
-        {/* Main row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
 
-          {/* Brand */}
           <div className="flex flex-col gap-4">
             <img src="/logo.png" alt="MOYA" className="h-12 w-auto object-contain self-start" />
             <p className="text-white/40 text-sm leading-relaxed max-w-[220px]">
@@ -17,7 +15,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Navigation */}
           <div className="flex flex-col gap-3">
             <p className="text-white/60 text-xs font-semibold tracking-widest uppercase mb-1">Navigate</p>
             {[
@@ -35,7 +32,6 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Contact */}
           <div className="flex flex-col gap-3">
             <p className="text-white/60 text-xs font-semibold tracking-widest uppercase mb-1">Contact</p>
             <a href="mailto:info@moyaeg.org"
@@ -56,7 +52,6 @@ export default function Footer() {
 
         </div>
 
-        {/* Divider + bottom bar */}
         <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/25 text-xs">© 2026 WaterWorks. All rights reserved.</p>
           <div className="flex items-center gap-1.5 text-white/20 text-xs">

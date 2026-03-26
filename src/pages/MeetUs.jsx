@@ -165,7 +165,6 @@ const values = [
   { icon: Heart, title: 'Community First', description: 'We build with communities, not just for them. Local knowledge drives global solutions.', accent: '#f43f5e' },
 ]
 
-// Map social keys to icons and labels
 const SOCIAL_META = {
   twitter:  { Icon: Twitter,   label: 'Twitter'  },
   github:   { Icon: Github,    label: 'GitHub'   },
@@ -255,10 +254,8 @@ function MemberModal({ member, onClose }) {
           <X size={15} />
         </button>
 
-        {/* Responsive: stack on mobile, side-by-side on sm+ */}
         <div className="flex flex-col sm:grid sm:grid-cols-[188px_1fr]">
 
-          {/* Left / top panel */}
           <div
             className="flex flex-col items-center pt-8 px-5 pb-6 sm:border-r sm:border-b-0 border-b"
             style={{ borderColor: 'rgba(255,255,255,0.06)' }}
@@ -315,7 +312,6 @@ function MemberModal({ member, onClose }) {
             )}
           </div>
 
-          {/* Right / bottom panel */}
           <div className="flex flex-col gap-4 p-5 sm:p-7">
 
             {member.quote && (
@@ -432,7 +428,6 @@ export default function MeetUs() {
 
       <MemberModal member={selected} onClose={() => setSelected(null)} />
 
-      {/* Hero */}
       <section className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center mb-16 sm:mb-24">
         <div className="absolute inset-0 -z-10 pointer-events-none">
           <div
@@ -457,7 +452,6 @@ export default function MeetUs() {
         </p>
       </section>
 
-      {/* Values */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 mb-16 sm:mb-20">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
           {values.map(({ icon: Icon, title, description, accent }) => (
@@ -483,7 +477,6 @@ export default function MeetUs() {
         </div>
       </section>
 
-      {/* Core Team */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 mb-16 sm:mb-20">
         <div className="flex items-center gap-4 mb-8 sm:mb-10">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent to-white/10" />
@@ -491,7 +484,6 @@ export default function MeetUs() {
           <div className="h-px flex-1 bg-gradient-to-l from-transparent to-white/10" />
         </div>
 
-        {/* 1-col on mobile, 2-col on sm, 3-col on md+ */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
           {team.map((member) => (
             <MemberCard key={member.name} member={member} onClick={setSelected} />
@@ -499,7 +491,6 @@ export default function MeetUs() {
         </div>
       </section>
 
-      {/* Supervisor */}
       <section className="max-w-sm mx-auto px-4 sm:px-6">
         <div className="flex items-center gap-4 mb-6 sm:mb-8">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent to-violet-500/20" />

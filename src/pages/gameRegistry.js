@@ -1,76 +1,3 @@
-/**
- * ═══════════════════════════════════════════════════════════════════
- *  AQUAWATCH GAME REGISTRY
- *  ─────────────────────────────────────────────────────────────────
- *  This is the ONLY file you need to edit to add a new game.
- *
- *  HOW TO ADD A REACT GAME:
- *  ────────────────────────
- *  1. Create your component in src/pages/games/YourGame.jsx
- *     It should accept: { onExit, onScoreEarned, userPoints, onSpendPoints }
- *  2. Add an entry below with type: 'react' and set component: YourGame
- *
- *  HOW TO ADD A GAME ENGINE GAME (Unity / Godot / Construct3 / etc.):
- *  ───────────────────────────────────────────────────────────────────
- *  1. Export your game to web (WebGL for Unity, HTML5 for Godot)
- *  2. Place the exported folder inside: public/games/your-game-id/
- *     The folder must contain an index.html (the game's entry point)
- *  3. Add an entry below with type: 'iframe'
- *     Set iframeSrc: '/games/your-game-id/index.html'
- *  4. (Optional) Add postMessage bridge for score reporting — see
- *     docs/GAME_BRIDGE.md for the message format your game should emit.
- *
- *  FEATURED GAME (BIG CARD — 500 pts):
- *  ────────────────────────────────────
- *  There is exactly ONE featured game at the top of the grid.
- *  It is identified by  featured: true  in its registry entry.
- *  It uses type: 'external' and an externalUrl to open in a new tab.
- *  To set it up:
- *    1. Replace YOUR_FEATURED_GAME_NAME with the game's display name
- *    2. Replace YOUR_FEATURED_GAME_TAGLINE with a short one-liner
- *    3. Replace YOUR_FEATURED_GAME_DESCRIPTION with a longer description
- *    4. Replace /images/games/featured-cover.jpg with your cover image path
- *       (place the image in public/images/games/)
- *    5. Replace https://your-featured-game-url.com with the external link
- *    6. Adjust cost if needed (default: 500)
- *
- *  MEDIUM EXTERNAL GAME:
- *  ─────────────────────
- *  Identified by  mediumCard: true  in its registry entry.
- *  Same setup steps as the featured game above but uses medium sizing.
- *    1. Replace YOUR_MEDIUM_GAME_NAME, tagline, description
- *    2. Replace /images/games/medium-cover.jpg with your cover image
- *    3. Replace https://your-medium-game-url.com with the external link
- *    4. Set your desired cost (default: 150)
- *
- *  GAME ENTRY FIELDS:
- *  ──────────────────
- *  id           string   Unique identifier. Must match game_unlocks DB value.
- *  name         string   Display name
- *  tagline      string   Short one-liner shown on card
- *  description  string   Longer description shown on card
- *  type         'react' | 'iframe' | 'external'
- *  component    ReactComponent   (only for type: 'react')
- *  iframeSrc    string           (only for type: 'iframe') path under /public
- *  externalUrl  string           (only for type: 'external') opens in new tab
- *  coverImage   string           (for external type) path to cover image
- *  iframeSize   object           (optional) { width, height } defaults to full
- *  engine       string           (optional) 'unity' | 'godot' | 'construct' | 'custom'
- *  emoji        string   Emoji icon (used on non-cover cards)
- *  cost         number   AquaPoints needed to unlock. 0 = free.
- *  difficulty   'Easy' | 'Medium' | 'Hard' | 'Expert'
- *  tags         string[]
- *  features     string[]  Up to 4 bullet-point features shown on card
- *  accentColor  string   Hex color for card glow/button accent
- *  gradient     string   Tailwind gradient classes for card background
- *  featured     boolean  Renders as the large hero card at the top
- *  mediumCard   boolean  Renders as a medium-sized card
- *  engineBadge  boolean  Whether to show a "Made with [Engine]" badge
- *  newBadge     boolean  Show a "NEW" badge on the card
- *  comingSoon   boolean  Card shows "Coming Soon" overlay instead of play
- * ═══════════════════════════════════════════════════════════════════
- */
-
 import { Brain, Puzzle, Droplets, Shield, Sparkles, Award, Gamepad2, Star } from 'lucide-react'
 import WaterTrivia from './games/WaterTrivia'
 import PipelinePuzzle from './games/PipelinePuzzle'
@@ -121,7 +48,7 @@ export const GAME_REGISTRY = [
     newBadge: true,
   },
 
-  // ── STANDARD REACT GAMES ─────────────────────────────────────────────────
+  // little games
 
   {
     id: 'trivia',
@@ -227,13 +154,10 @@ export const GAME_REGISTRY = [
   },
 
 ]
-
-/** IDs of games that are always free (never need a DB unlock entry) */
 export const FREE_GAME_IDS = new Set(
   GAME_REGISTRY.filter(g => g.cost === 0).map(g => g.id)
 )
 
-/** Engine display names for the badge shown on iframe game cards */
 export const ENGINE_LABELS = {
   unity:     'Unity',
   godot:     'Godot',

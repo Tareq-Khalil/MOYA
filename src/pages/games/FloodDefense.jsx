@@ -33,7 +33,7 @@ export default function FloodDefense({ onExit, onScoreEarned }) {
   const [wave, setWave] = useState(0)
   const [score, setScore] = useState(0)
   const [homesDestroyed, setHomesDestroyed] = useState(0)
-  const [gameState, setGameState] = useState('playing') // playing, lost, won
+  const [gameState, setGameState] = useState('playing') 
   const [timeLeft, setTimeLeft] = useState(60)
   const [sandbags, setSandbags] = useState(20)
   const intervalRef = useRef(null)
@@ -44,17 +44,14 @@ export default function FloodDefense({ onExit, onScoreEarned }) {
     const newGrid = currentGrid.map(r => [...r])
     let newHomesDestroyed = 0
 
-    // Spread from left and from existing flood
     const toSpread = []
 
-    // Start from left edge
     for (let r = 0; r < GRID_ROWS; r++) {
       if (!newFlooded.has(`${r},0`) && newGrid[r][0] !== 'sandbag') {
         toSpread.push({ r, c: 0 })
       }
     }
 
-    // Spread from existing flood
     newFlooded.forEach(key => {
       const [r, c] = key.split(',').map(Number)
       const dirs = [[0,1],[1,0],[-1,0],[0,-1]]
@@ -68,7 +65,6 @@ export default function FloodDefense({ onExit, onScoreEarned }) {
       })
     })
 
-    // Add only a limited spread per wave
     const spreadLimit = Math.min(toSpread.length, 2 + wave)
     const shuffled = toSpread.sort(() => Math.random() - 0.5).slice(0, spreadLimit)
 
@@ -150,7 +146,6 @@ export default function FloodDefense({ onExit, onScoreEarned }) {
       setSandbags(s => s - 1)
       setScore(s => s + 5)
     } else if (cell === 'sandbag') {
-      // Remove sandbag
       const newGrid = grid.map(row => [...row])
       newGrid[r][c] = 'empty'
       setGrid(newGrid)
@@ -187,7 +182,6 @@ export default function FloodDefense({ onExit, onScoreEarned }) {
 
   return (
     <div className="flex flex-col items-center gap-4 max-w-2xl mx-auto">
-      {/* Header stats */}
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-3">
           <div className="glass px-3 py-1.5 rounded-full flex items-center gap-1.5">
@@ -210,15 +204,12 @@ export default function FloodDefense({ onExit, onScoreEarned }) {
         </div>
       </div>
 
-      {/* Instruction */}
       <p className="text-white/40 text-xs text-center">
         Click cells to place sandbags 🪣 — protect the 🏠 homes from flooding! Click sandbag to remove it.
       </p>
 
-      {/* Grid */}
       <div className="glass rounded-2xl p-3">
         <div className="relative">
-          {/* Water source indicator */}
           <div className="absolute -left-6 top-1/2 -translate-y-1/2 flex flex-col items-center gap-1">
             <Droplets size={16} className="text-blue-400 animate-bounce" />
             <div className="text-blue-400 text-xs">←</div>
@@ -244,7 +235,6 @@ export default function FloodDefense({ onExit, onScoreEarned }) {
         </div>
       </div>
 
-      {/* Game Over overlays */}
       {gameState !== 'playing' && (
         <div className="w-full animate-fade-in">
           <div className={`rounded-2xl p-5 flex flex-col items-center gap-3 text-center border ${

@@ -124,7 +124,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Stats ── */}
       <section className="py-12 sm:py-20 bg-ocean-900/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
@@ -136,7 +135,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Features ── */}
       <section className="py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10 sm:mb-16">
@@ -152,7 +150,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── How to get started ── */}
       <section className="py-16 sm:py-20 bg-ocean-900/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 items-center">
@@ -196,7 +193,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Volunteer section ── */}
       <section className="py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10">
@@ -284,12 +280,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Game Hub preview ── */}
       <section className="py-16 sm:py-24 bg-ocean-900/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center">
 
-            {/* ── Left: text + game list ── */}
             <div>
               <div className="inline-flex items-center gap-2 glass px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-5 sm:mb-6">
                 <Gamepad2 size={13} className="text-violet-300" />
@@ -308,15 +302,8 @@ export default function Home() {
                 science, infrastructure, purification, and real-world crisis management.
               </p>
 
-              {/*
-                ── GAME LIST ────────────────────────────────────────────────
-                Your 2 custom games are ALWAYS first (gold + indigo rows).
-                Replace YOUR_FEATURED_GAME_NAME / YOUR_MEDIUM_GAME_NAME
-                and their desc lines with your real game details.
-              */}
               <div className="flex flex-col gap-2 sm:gap-3 mb-6 sm:mb-8">
 
-                {/* ── YOUR FEATURED GAME — gold highlight row ── */}
                 <div className="flex items-center gap-3 rounded-xl px-3 sm:px-4 py-3 group hover:brightness-110 transition-all border border-amber-500/25 cursor-pointer"
                   style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.10), rgba(245,158,11,0.04))' }}>
                   <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
@@ -334,7 +321,6 @@ export default function Home() {
                   <ExternalLink size={13} className="text-amber-400/50 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
 
-                {/* ── YOUR MEDIUM GAME — indigo highlight row ── */}
                 <div className="flex items-center gap-3 rounded-xl px-3 sm:px-4 py-3 group hover:brightness-110 transition-all border border-indigo-500/25 cursor-pointer"
                   style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.10), rgba(99,102,241,0.04))' }}>
                   <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 bg-indigo-500/20 border border-indigo-500/35">
@@ -351,7 +337,6 @@ export default function Home() {
                   <ExternalLink size={13} className="text-indigo-400/50 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
 
-                {/* ── Standard game rows ── */}
                 {[
                   { emoji: '🔧', name: 'Pipeline Puzzle', label: '10 pts',  desc: 'Rotate pipes to route water infrastructure' },
                   { emoji: '🌊', name: 'Flood Defense',   label: '20 pts',  desc: 'Real-time strategy: protect homes from floods' },
@@ -385,21 +370,13 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-
-            {/* ──────────────────────────────────────────────────────────────
-                Right: stacked card deck — 5 cards layered on top of each other
-                Stack order (back → front): Trivia → Pipeline → Flood → Medium → Featured
-                Your 2 custom games are the front-most (most visible) cards.
-            ────────────────────────────────────────────────────────────── */}
             <div className="relative hidden lg:block" style={{ height: '500px' }}>
 
-              {/* Ambient glows */}
               <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full pointer-events-none"
                 style={{ background: 'radial-gradient(ellipse, rgba(245,158,11,0.07) 0%, transparent 70%)' }} />
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-40 rounded-full pointer-events-none"
                 style={{ background: 'radial-gradient(ellipse, rgba(99,102,241,0.08) 0%, transparent 70%)' }} />
 
-              {/* ── Card 5 (back): Water Trivia ── */}
               <div className="absolute left-12 right-12 top-2 glass rounded-3xl px-5 py-4 border border-white/8 rotate-3 opacity-35 pointer-events-none" style={{ zIndex: 1 }}>
                 <div className="flex items-center gap-3">
                   <span className="text-lg">🧠</span>
@@ -411,7 +388,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* ── Card 4: Pipeline Puzzle ── */}
               <div className="absolute left-8 right-8 top-10 glass rounded-3xl p-5 border border-white/10 -rotate-1 opacity-50 pointer-events-none" style={{ zIndex: 2 }}>
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-xl">🔧</span>
@@ -428,7 +404,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* ── Card 3: Flood Defense ── */}
               <div className="absolute left-5 right-5 top-24 glass rounded-3xl p-5 border border-blue-500/15 rotate-1 opacity-65 pointer-events-none" style={{ zIndex: 3 }}>
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-2xl">🌊</span>
@@ -443,8 +418,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* ── Card 2: YOUR MEDIUM GAME ── */}
-              {/* Replace YOUR_MEDIUM_GAME_NAME below */}
               <div className="absolute left-2 right-2 top-40 rounded-3xl p-5 border -rotate-0.5 opacity-88 pointer-events-none"
                 style={{
                   zIndex: 4,
@@ -452,7 +425,6 @@ export default function Home() {
                   borderColor: 'rgba(99,102,241,0.40)',
                   backdropFilter: 'blur(14px)',
                 }}>
-                {/* Top accent line */}
                 <div className="absolute top-0 left-8 right-8 h-px rounded-full"
                   style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.7), transparent)' }} />
                 <div className="flex items-start gap-3 mb-3">
@@ -482,8 +454,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* ── Card 1 (front): YOUR FEATURED GAME ── */}
-              {/* Replace YOUR_FEATURED_GAME_NAME and the description line below */}
               <div className="absolute left-0 right-0 bottom-0 rounded-3xl p-6 border shadow-2xl"
                 style={{
                   zIndex: 5,
@@ -492,10 +462,8 @@ export default function Home() {
                   backdropFilter: 'blur(20px)',
                   boxShadow: '0 24px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(245,158,11,0.10), 0 0 48px rgba(245,158,11,0.06)',
                 }}>
-                {/* Gold shimmer top border */}
                 <div className="absolute top-0 left-8 right-8 h-px rounded-full"
                   style={{ background: 'linear-gradient(90deg, transparent, rgba(245,158,11,0.75), transparent)' }} />
-                {/* Subtle corner glows */}
                 <div className="absolute top-0 left-0 w-24 h-24 rounded-full pointer-events-none"
                   style={{ background: 'radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%)' }} />
                 <div className="absolute bottom-0 right-0 w-32 h-32 rounded-full pointer-events-none"

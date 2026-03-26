@@ -6,7 +6,6 @@ import {
   Users, MapPin, Loader, Video, CheckCircle2, Wrench
 } from 'lucide-react'
 
-// ─── Report Review Card ────────────────────────────────────────────────────
 function ReportReview({ report, onDecision }) {
   const [imgIdx, setImgIdx] = useState(0)
   const [points, setPoints] = useState(10)
@@ -99,7 +98,6 @@ function ReportReview({ report, onDecision }) {
   )
 }
 
-// ─── Solution Review Card ──────────────────────────────────────────────────
 function SolutionReview({ solution, onDecision }) {
   const [points, setPoints] = useState(20)
   const [loading, setLoading] = useState(false)
@@ -108,7 +106,6 @@ function SolutionReview({ solution, onDecision }) {
     setLoading(true)
     const awardedPoints = status === 'approved' ? points : 0
 
-    // Update solution
     const { error: solErr } = await supabase
       .from('solutions')
       .update({ status, points_awarded: awardedPoints, reviewed_at: new Date().toISOString() })
@@ -117,13 +114,11 @@ function SolutionReview({ solution, onDecision }) {
     if (solErr) { setLoading(false); return }
 
     if (status === 'approved') {
-      // Award points to solver
       await supabase.rpc('increment_user_points', {
         user_id_param: solution.user_id,
         points_param: points
       })
 
-      // Mark the linked report as resolved → it disappears from map
       await supabase
         .from('reports')
         .update({ status: 'resolved', resolved_at: new Date().toISOString() })
@@ -153,7 +148,6 @@ function SolutionReview({ solution, onDecision }) {
         {solution.description}
       </p>
 
-      {/* Solution video */}
       {solution.video_url && (
         <div className="mb-4">
           <p className="text-xs text-white/40 mb-2 flex items-center gap-1"><Video size={11} />Solution Video Proof</p>
@@ -192,7 +186,6 @@ function SolutionReview({ solution, onDecision }) {
   )
 }
 
-// ─── Admin Page ────────────────────────────────────────────────────────────
 export default function Admin() {
   const { profile } = useAuth()
   const [reports, setReports] = useState([])
@@ -232,7 +225,6 @@ export default function Admin() {
   return (
     <div className="min-h-screen pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <div className="w-12 h-12 rounded-2xl bg-teal-500/20 flex items-center justify-center">
             <Shield size={24} className="text-teal-300" />
@@ -243,7 +235,6 @@ export default function Admin() {
           </div>
         </div>
 
-        {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
           {[
             { label: 'Total', value: stats.total, color: 'text-white', bg: 'bg-white/5' },
@@ -259,7 +250,6 @@ export default function Admin() {
           ))}
         </div>
 
-        {/* Main tabs: Reports vs Solutions */}
         <div className="flex gap-2 mb-6 glass p-1.5 rounded-2xl w-fit">
           <button
             onClick={() => setTab('reports')}
@@ -286,7 +276,6 @@ export default function Admin() {
           </button>
         </div>
 
-        {/* ── Reports Tab ── */}
         {tab === 'reports' && (
           <>
             <div className="flex gap-2 mb-6 glass p-1.5 rounded-2xl w-fit">
@@ -323,7 +312,6 @@ export default function Admin() {
           </>
         )}
 
-        {/* ── Solutions Tab ── */}
         {tab === 'solutions' && (
           <>
             {loading ? (

@@ -46,7 +46,6 @@ function MapClickHandler({ onClick }) {
   return null
 }
 
-// ─── Tooltip (appears to the left of each button) ─────────────────────────
 function Tooltip({ label, children }) {
   return (
     <div className="relative group flex justify-center">
@@ -64,7 +63,6 @@ function Tooltip({ label, children }) {
   )
 }
 
-// ─── Submit Report Modal ───────────────────────────────────────────────────
 function SubmitModal({ latlng, onClose, onSuccess }) {
   const { user } = useAuth()
   const [form, setForm] = useState({ title: '', description: '' })
@@ -213,7 +211,6 @@ function SubmitModal({ latlng, onClose, onSuccess }) {
   )
 }
 
-// ─── Solve Report Modal ────────────────────────────────────────────────────
 function SolveModal({ report, onClose, onSuccess }) {
   const { user } = useAuth()
   const [description, setDescription] = useState('')
@@ -316,7 +313,6 @@ function SolveModal({ report, onClose, onSuccess }) {
   )
 }
 
-// ─── Report Card (popup) ───────────────────────────────────────────────────
 function ReportCard({ report, onSolveClick, currentUserId }) {
   const [imgIdx, setImgIdx] = useState(0)
   const images = report.image_urls || []
@@ -373,7 +369,6 @@ function ReportCard({ report, onSolveClick, currentUserId }) {
   )
 }
 
-// ─── Main Map Page ─────────────────────────────────────────────────────────
 export default function MapPage() {
   const { user } = useAuth()
   const [reports, setReports] = useState([])
@@ -432,15 +427,6 @@ export default function MapPage() {
 
   return (
     <>
-      {/*
-        ══════════════════════════════════════════════════════════════════════
-        MAP CONTAINER
-        position: fixed — sits in the viewport strip between the navbar and
-        the bottom of the screen, totally independent of normal page flow.
-        The navbar (z-50) renders above it; the footer renders below via the
-        spacer div at the end of this fragment.
-        ══════════════════════════════════════════════════════════════════════
-      */}
       <div
         className={addMode ? 'cursor-crosshair' : ''}
         style={{
@@ -449,10 +435,9 @@ export default function MapPage() {
           left: 0,
           right: 0,
           bottom: 0,
-          zIndex: 0,          // below navbar z-50, above normal page bg
+          zIndex: 0,          
         }}
       >
-        {/* Loading overlay */}
         {loading && (
           <div className="absolute inset-0 z-10 flex items-center justify-center bg-ocean-950/50 backdrop-blur-sm">
             <div className="flex flex-col items-center gap-3">
@@ -499,13 +484,7 @@ export default function MapPage() {
           )}
         </MapContainer>
 
-        {/*
-          ══════════════════════════════════════════════════════════════════
-          FLOATING RIGHT-SIDE BUTTON PANEL
-          fixed → completely unaffected by navbar or footer.
-          Vertically centred in the visible viewport (not the whole page).
-          ══════════════════════════════════════════════════════════════════
-        */}
+
         <div
           style={{
             position: 'fixed',
@@ -518,7 +497,6 @@ export default function MapPage() {
         >
           {user ? (
             <>
-              {/* Use My Location */}
               <Tooltip label={geoLoading ? 'Locating…' : 'Use my location'}>
                 <button
                   onClick={handleUseMyLocation}
@@ -534,7 +512,6 @@ export default function MapPage() {
                 </button>
               </Tooltip>
 
-              {/* Report / Cancel */}
               <Tooltip label={addMode ? 'Cancel reporting' : 'Report a water problem'}>
                 <button
                   onClick={() => setAddMode(v => !v)}
@@ -565,10 +542,8 @@ export default function MapPage() {
             </Tooltip>
           )}
 
-          {/* Divider */}
           <div className="w-6 h-px bg-white/15" />
 
-          {/* Legend toggle */}
           <Tooltip label="Toggle legend">
             <button
               onClick={() => setShowLegend(v => !v)}
@@ -584,7 +559,6 @@ export default function MapPage() {
             </button>
           </Tooltip>
 
-          {/* Issue count badge */}
           <div className="
             w-11 rounded-2xl glass border border-white/15 shadow-lg
             flex flex-col items-center justify-center gap-0.5 py-2.5
@@ -595,13 +569,12 @@ export default function MapPage() {
           </div>
         </div>
 
-        {/* Legend panel — pops left of the side buttons */}
         {showLegend && (
           <div
             className="glass rounded-xl p-3 flex flex-col gap-2 shadow-xl"
             style={{
               position: 'fixed',
-              right: 72,          // side panel width (44px) + gap (16px) + right margin (12px)
+              right: 72,          
               top: '50%',
               transform: 'translateY(-50%)',
               zIndex: 1000,
@@ -623,7 +596,6 @@ export default function MapPage() {
           </div>
         )}
 
-        {/* Add-mode hint — top-centre of the map area */}
         {addMode && (
           <div className="
             absolute top-4 left-1/2 -translate-x-1/2 z-[1000]
@@ -636,7 +608,6 @@ export default function MapPage() {
           </div>
         )}
 
-        {/* Success toast — bottom-centre of the map area */}
         {successMsg && (
           <div className="
             absolute bottom-6 left-1/2 -translate-x-1/2 z-[1000]
@@ -650,13 +621,9 @@ export default function MapPage() {
         )}
       </div>
 
-      {/*
-        Spacer — pushes the footer down below the map in normal document flow.
-        Height = viewport height minus the navbar height.
-      */}
+
       <div style={{ height: `calc(100vh - ${NAVBAR_H}px)` }} aria-hidden="true" />
 
-      {/* Modals — z-[2000] so they float above everything */}
       {showModal && pendingPin && (
         <SubmitModal
           latlng={pendingPin}
