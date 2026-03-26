@@ -7,7 +7,7 @@ const team = [
     role: 'CEO',
     roleLabel: 'Chief Executive Officer',
     jobDesc: 'Leads company vision, strategy, partnerships, investor relations, and overall business development.',
-    bio: 'Full-Stack Web Developer who spends most of his time leveling up different tech skill trees: Machine Learning Engineer, Game Developer, App Developer, and Data Analyst. Think of it like grinding multiple classes in an RPG until the build becomes slightly overpowered.\nI’m also an otaku and animator, so most of my inspiration comes from anime, late-night coding arcs, and the belief that every project deserves at least a little main-character energy.',
+    bio: 'Full-Stack Web Developer who spends most of his time leveling up different tech skill trees: Machine Learning Engineer, Game Developer, App Developer, and Data Analyst. Think of it like grinding multiple classes in an RPG until the build becomes slightly overpowered.\nI’m also an otaku, hack clubber and animator, so most of my inspiration comes from anime, late-night coding arcs, and the belief that every project deserves at least a little main-character energy.',
     quote: 'The more you understand this world, the more you destroy yourself. That\'s why fools are happy, and intelligent people live in loneliness.',
     avatar: 'TQ',
     photo: 'https://i.ibb.co/BVvWX7jV/tareqkhalil.png',
